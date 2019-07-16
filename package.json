@@ -1,0 +1,28 @@
+{
+  "name": "fantasyNooz",
+  "version": "1.0.0",
+  "description": "Fantasy news and stats",
+  "main": "server.js",
+  "repository": "https://github.com/srtalaie/fantasyNooz.git",
+  "author": "srtalaie <srt4721@yahoo.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "client": "cd client && npm run start",
+    "install": "cd client && yarn install",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build",
+    "lint": "eslint **/*.js --quiet",
+    "fix": "eslint --fix ."
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "concurrently": "^4.1.1",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "nodemon": "^1.19.1",
+    "path": "^0.12.7"
+  }
+}
