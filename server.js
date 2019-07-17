@@ -12,9 +12,6 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-apiKey = process.env.API_Key
-
-
 app.listen(PORT, () => {
     console.log(`🌎 ==> Server now on port ${PORT}!`);
   });
