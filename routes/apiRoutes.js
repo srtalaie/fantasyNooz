@@ -22,6 +22,7 @@ module.exports = function(app){
             res.send(formattedPlayers);
         });
     });
+
     //Scrape data from FFP consensus ranking sheet
     app.get('/getFFP', function(req, res){
         request("https://www.fantasypros.com/nfl/rankings/consensus-cheatsheets.php", function(error, response, html){
@@ -54,4 +55,47 @@ module.exports = function(app){
         });
     });
 
+    //Scrape article's titles and links from r/fantasyfootball
+    app.get("/getRticles", function(req, res){
+        request("https://old.reddit.com/r/fantasyfootball/", function(error, response, html){
+            let $ = cheerio.load(html);
+            let articles = []
+            $("div.thing").each((i = 0, element)=>{
+                //Grab 20 articles
+                if (i < 20){
+                    let link;
+                    let commentsLink;
+
+                    //Split the url to use for the test to see if its a self post or article
+                    let testLink = $(element).attr('data-url').split('');
+
+                    //If the link is a reddit self post append the 'https://old.reddit.com' so it goes to the correct
+                    //link, if not then use the normal link to the tweet or article and set comments link to the reddit //post, also don't post any commentsLink for the self post because it is redundant
+                    if(testLink[0] === '/'){
+                        link = `https://old.reddit.com${$(element).attr('data-url')}`;
+                        commentsLink = ''
+                    } else{
+                        link = $(element).attr('data-url');
+                        commentsLink = $(element).find('li.first').find('a').attr('href')
+                    }
+
+                    let title = $(element).find('p.title').text();
+                    
+                    //Create articles object to store article info
+                    let article = {
+                        title: title,
+                        commentsLink: `${commentsLink}`,
+                        link: `${link}`
+                    }
+
+                    //Push article to articles array
+                    articles.push(article);
+                    i++;
+                }
+            });
+
+            //Send articles array to server
+            res.send(articles);
+        });
+    });
 }
