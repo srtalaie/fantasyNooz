@@ -14,6 +14,9 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+//API routes
+require('./routes/apiRoutes.js')(app);
+
 app.listen(PORT, () => {
     console.log(`🌎 ==> Server now on port ${PORT}!`);
   });

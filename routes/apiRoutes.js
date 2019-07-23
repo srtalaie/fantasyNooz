@@ -1,6 +1,9 @@
+const request = require("request");
+const cheerio = require("cheerio");
+
 module.exports = function(app){
     //Pull Data from 4for4's ADP chart
-    app.get('/getADPs', function(req, res){
+    app.get('/api/get4ADPs', function(req, res){
         request("https://www.4for4.com/fantasy-football/adp", function(error, response, html){
             let $ = cheerio.load(html);
 
@@ -24,7 +27,7 @@ module.exports = function(app){
     });
 
     //Scrape data from FFP consensus ranking sheet
-    app.get('/getFFP', function(req, res){
+    app.get('/api/getFFPADPs', function(req, res){
         request("https://www.fantasypros.com/nfl/rankings/consensus-cheatsheets.php", function(error, response, html){
             let $ = cheerio.load(html);
 
@@ -56,7 +59,7 @@ module.exports = function(app){
     });
 
     //Scrape article's titles and links from r/fantasyfootball
-    app.get("/getRticles", function(req, res){
+    app.get("/api/getRticles", function(req, res){
         request("https://old.reddit.com/r/fantasyfootball/", function(error, response, html){
             let $ = cheerio.load(html);
             let articles = []
