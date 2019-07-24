@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import API from '../../utils/API.js';
+import ArticlesCard from '../../components/ArticlesCard.js';
 
 class Dashboard extends Component {
 
@@ -33,9 +34,13 @@ class Dashboard extends Component {
         return(
             <div>
                 {this.state.posts.length ? (
-                    this.state.posts.map(posts => {
+                    this.state.posts.map(post => {
                         return (
-                            <h1>{posts.title}</h1>
+                            <ArticlesCard 
+                                 title = {post.title}
+                                 commentsLink = {post.commentsLink}
+                                 link = {post.link}
+                            />
                         );
                     })
 
