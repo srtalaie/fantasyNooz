@@ -1,7 +1,6 @@
 import React from "react";
 
 const playerLinkStyle = {
-    textDecoration: 'none',
     color: 'black'
 }
 

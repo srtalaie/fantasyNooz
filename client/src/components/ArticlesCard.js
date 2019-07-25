@@ -1,7 +1,6 @@
 import React from "react";
 
 const articlesLinkStyle = {
-    textDecoration: 'none',
     color: 'black'
 }
 
