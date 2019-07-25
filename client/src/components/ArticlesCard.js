@@ -1,10 +1,15 @@
 import React from "react";
 
+const articlesLinkStyle = {
+    textDecoration: 'none',
+    color: 'black'
+}
+
 const ArticlesCard = ({ title, commentsLink, link }) => (
     <div>
-        <p><a href={link}>{title}</a></p>
+        <a href={link} style={articlesLinkStyle}>{title}</a>
         {commentsLink !== '' &&
-            <p><a href={commentsLink}>Reddit Comments</a></p>
+        <a href={commentsLink} style={articlesLinkStyle}>  ||  Reddit Comments</a>
         }
     </div>
 );

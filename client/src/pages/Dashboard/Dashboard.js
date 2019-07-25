@@ -37,7 +37,7 @@ class Dashboard extends Component {
                 {this.state.posts.length ? (
                     this.state.posts.map(post => {
                         return (
-                            <ArticlesCard 
+                            <ArticlesCard
                                  title = {post.title}
                                  commentsLink = {post.commentsLink}
                                  link = {post.link}
