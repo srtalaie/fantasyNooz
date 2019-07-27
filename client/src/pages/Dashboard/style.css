@@ -1,0 +1,38 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    flex-wrap: wrap;
+    max-width: 550px;
+}
+
+.tableRows:nth-child(even) {
+    background-color: #bcc5f9;
+}
+
+th,td {
+    text-align: left;
+    margin: 5px;
+    padding: 5px;
+}
+
+table {
+    border: 1px grey solid;
+    border-collapse: collapse;
+}
+
+th,td {
+    border: 1px grey solid;
+}
+
+th {
+    background-color: #bcc5f9;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    margin-top: 10px;
+}

@@ -4,8 +4,9 @@ const playerLinkStyle = {
     color: 'black'
 }
 
+
 const FantasyProsCard = ({ rank, name, playerLink, team, position, byeWeek, bestRank, worstRank, average, stdDev, adp, vsADP }) => (
-    <tr>
+    <tr className="tableRows">
         <td>{rank}</td>
         <td><a href={playerLink} style={playerLinkStyle}>{name}</a></td>
         <td>{team}</td>

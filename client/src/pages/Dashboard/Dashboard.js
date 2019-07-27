@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import API from '../../utils/API.js';
 import ArticlesCard from '../../components/ArticlesCard.js';
 import FantasyProsCard from '../../components/FantasyProsCard.js';
+import '../Dashboard/style.css';
 
 class Dashboard extends Component {
 
@@ -33,21 +34,7 @@ class Dashboard extends Component {
 
     render(){
         return(
-            <div>
-                {this.state.posts.length ? (
-                    this.state.posts.map(post => {
-                        return (
-                            <ArticlesCard
-                                 title = {post.title}
-                                 commentsLink = {post.commentsLink}
-                                 link = {post.link}
-                            />
-                        );
-                    })
-
-                ) : (
-                <h3>Please Wait for Articles to Load</h3>
-                )}
+            <div className="container">
                 {this.state.adp.length ? (
                     <table>
                         <thead>
@@ -89,6 +76,24 @@ class Dashboard extends Component {
                 ) : (
                 <h3>Please wait While Table Loads</h3>
                 )}
+                <ul>
+                    {this.state.posts.length ? (
+                        this.state.posts.map(post => {
+                            return (
+                                <li>
+                                    <ArticlesCard
+                                        title = {post.title}
+                                        commentsLink = {post.commentsLink}
+                                        link = {post.link}
+                                    />
+                                </li>
+                            );
+                        })
+
+                    ) : (
+                    <h3>Please Wait for Articles to Load</h3>
+                    )}
+                </ul>
             </div>
         );
     }
