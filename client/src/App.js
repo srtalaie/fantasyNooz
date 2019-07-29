@@ -1,12 +1,11 @@
 import React from 'react';
-import logo from './logo.svg';
-import Dashboard from './pages/Dashboard/Dashboard.js';
+import ADPTable from './pages/ADPTable/ADPTable.js';
 
 function App() {
   return (
     <div>
       <header>
-      <Dashboard />
+      <ADPTable />
       </header>
     </div>
   );
