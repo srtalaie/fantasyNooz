@@ -3,7 +3,7 @@ import API from '../../utils/API.js';
 import ArticlesCard from '../../components/ArticlesCard.js';
 import FantasyProsCard from '../../components/FantasyProsCard.js';
 import '../ADPTable/style.css';
-import { Button, Modal } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 
 class Dashboard extends Component {
 
@@ -47,7 +47,7 @@ class Dashboard extends Component {
             <div className="container">
                 <h1>Fantasy Pros Draft Ranks</h1>
                 <div className="tableDescription">
-                    <p>Data is scraped from <a href="https://www.fantasypros.com/nfl/rankings/consensus-cheatsheets.php">Fantasy Pros</a> which uses consensus rankings of ~80 experts. You can visit their site to create your own custom sheet based on which experts you trust.All rankings based on standard scoring.</p>
+                    <p>Data is scraped from <a href="https://www.fantasypros.com/nfl/rankings/consensus-cheatsheets.php">Fantasy Pros</a> which uses consensus rankings of ~80 experts. You can visit their site to create your own custom sheet based on which experts you trust. All rankings based on standard scoring.</p>
                 </div>
                 <div className="tableKey">
                     <p className="keyItem"><b>Rank</b>: FP's Rank</p>
@@ -110,25 +110,6 @@ class Dashboard extends Component {
                 ): (
                     <div></div>
                 )}
-                
-                <ul>
-                    {this.state.posts.length ? (
-                        this.state.posts.map(post => {
-                            return (
-                                <li>
-                                    <ArticlesCard
-                                        title = {post.title}
-                                        commentsLink = {post.commentsLink}
-                                        link = {post.link}
-                                    />
-                                </li>
-                            );
-                        })
-
-                    ) : (
-                    <h3>Please Wait for Articles to Load</h3>
-                    )}
-                </ul>
             </div>
         );
     }
