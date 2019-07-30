@@ -65,7 +65,7 @@ module.exports = function(app){
             let articles = []
             $("div.thing").each((i = 0, element)=>{
                 //Grab 20 articles
-                if (i < 20){
+                if (i < 26){
                     let link;
                     let commentsLink;
 
