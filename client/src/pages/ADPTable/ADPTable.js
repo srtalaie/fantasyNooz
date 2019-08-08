@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import API from '../../utils/API.js';
-import ArticlesCard from '../../components/ArticlesCard.js';
 import FantasyProsCard from '../../components/FantasyProsCard.js';
 import '../ADPTable/style.css';
 import { Button } from '@material-ui/core';
