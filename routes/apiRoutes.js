@@ -221,7 +221,7 @@ module.exports = function(app){
 
     //Get QB Stats
     app.get('/rbStats/:id', function(req, res){
-        request(`https://www.footballdb.com/fantasy-football/index.html?pos=RB&yr=${req.params.id}&wk=all&rules=1`, function(error, response, html){
+        request(`https://www.footballdb.com/fantasy-football/index.html?pos=QB&yr=${req.params.id}&wk=all&rules=1`, function(error, response, html){
             let runningBacks = [];
             let $ = cheerio.load(html);
             $('tbody:nth-child(2)').find('tr').each(function(i = 0, tr){
