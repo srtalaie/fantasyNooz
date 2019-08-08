@@ -7,9 +7,13 @@ import { Button } from '@material-ui/core';
 class Dashboard extends Component {
 
     state = {
-        posts: [],
-        adp: [],
-        showHideRanks: false
+        year: '',
+        qbStats: [],
+        wrStats: [],
+        rbStats: [],
+        teStats: [],
+        kStats: [],
+        dstStats: []
     }
 
     componentDidMount(){
