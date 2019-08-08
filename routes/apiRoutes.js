@@ -257,4 +257,56 @@ module.exports = function(app){
             res.send(runningBacks)
         })
     });
+
+    //Get K Stats
+    app.get('/kStats/:id', function(req, res){
+        request(`https://www.footballdb.com/fantasy-football/index.html?pos=K&yr=${req.params.id}&wk=all&rules=1`, function(error, response, html){
+            let kickers = [];
+            let $ = cheerio.load(html);
+            $('tbody:nth-child(2)').find('tr').each(function(i = 0, tr){
+                let player = {
+                    name: $(tr).find('.hidden-xs').find('a').text(),
+                    link: `https://www.footballdb.com/${$(tr).find('.hidden-xs').find('a').attr('href')}`,
+                    totalpts: $(tr).find('.hilite').text(),
+                    xpa: $(tr).find('td:nth-child(4)').text(),
+                    xpm: $(tr).find('td:nth-child(5)').text(),
+                    fga: $(tr).find('td:nth-child(6)').text(),
+                    fgm: $(tr).find('td:nth-child(7)').text(),
+                    fiftyPlus: $(tr).find('td:nth-child(8)').text()
+                }
+                kickers.push(player);
+                return kickers;
+            })
+            res.send(kickers)
+        })
+    });
+
+    //Get DST Stats
+    app.get('/dstStats/:id', function(req, res){
+        request(`https://www.footballdb.com/fantasy-football/index.html?pos=DST&yr=${req.params.id}&wk=all&rules=1`, function(error, response, html){
+            let dst = [];
+            let $ = cheerio.load(html);
+            $('tbody:nth-child(2)').find('tr').each(function(i = 0, tr){
+                let player = {
+                    name: $(tr).find('.hidden-xs').find('a').text(),
+                    link: `https://www.footballdb.com/${$(tr).find('.hidden-xs').find('a').attr('href')}`,
+                    totalpts: $(tr).find('.hilite').text(),
+                    sack: $(tr).find('td:nth-child(4)').text(),
+                    int: $(tr).find('td:nth-child(5)').text(),
+                    saf: $(tr).find('td:nth-child(6)').text(),
+                    fr: $(tr).find('td:nth-child(7)').text(),
+                    blk: $(tr).find('td:nth-child(8)').text(),
+                    td: $(tr).find('td:nth-child(9)').text(),
+                    pa: $(tr).find('td:nth-child(10)').text(),
+                    passYG: $(tr).find('td:nth-child(11)').text(),
+                    ryshYG: $(tr).find('td:nth-child(12)').text(),
+                    totalYG: $(tr).find('td:nth-child(13)').text()
+    
+                }
+                dst.push(player);
+                return dst;
+            })
+            res.send(dst)
+        })
+    });
 }
