@@ -140,4 +140,121 @@ module.exports = function(app){
             res.send(runningBacks)
         })
     });
+
+    //Get WR Stats
+    app.get('/rbStats/:id', function(req, res){
+        request(`https://www.footballdb.com/fantasy-football/index.html?pos=WR&yr=${req.params.id}&wk=all&rules=1`, function(error, response, html){
+            let wideReceivers = [];
+            let $ = cheerio.load(html);
+            $('tbody:nth-child(2)').find('tr').each(function(i = 0, tr){
+                let player = {
+                    name: $(tr).find('.hidden-xs').find('a').text(),
+                    link: `https://www.footballdb.com/${$(tr).find('.hidden-xs').find('a').attr('href')}`,
+                    totalpts: $(tr).find('.hilite').text(),
+                    passingStats: {
+                        att: $(tr).find('td:nth-child(4)').text(),
+                        cmp: $(tr).find('td:nth-child(5)').text(), 
+                        yds: $(tr).find('td:nth-child(6)').text(),
+                        td: $(tr).find('td:nth-child(7)').text(),
+                        int: $(tr).find('td:nth-child(8)').text(),
+                        twoPt: $(tr).find('td:nth-child(9)').text()
+                    },
+                    rushingStats: {
+                        att: $(tr).find('td:nth-child(10)').text(),
+                        yds: $(tr).find('td:nth-child(11)').text(),
+                        td: $(tr).find('td:nth-child(12)').text(),
+                        twoPt: $(tr).find('td:nth-child(13)').text()                
+                    },
+                    receivingStats : {
+                        rec: $(tr).find('td:nth-child(14)').text(),
+                        yds: $(tr).find('td:nth-child(15)').text(),
+                        td: $(tr).find('td:nth-child(16)').text(),
+                        twoPt: $(tr).find('td:nth-child(17)').text()
+                    },
+                    fl: $(tr).find('td:nth-child(18)').text()
+                }
+                wideReceivers.push(player);
+                return wideReceivers;
+            })
+            res.send(wideReceivers)
+        })
+    });
+
+    //Get TE Stats
+    app.get('/rbStats/:id', function(req, res){
+        request(`https://www.footballdb.com/fantasy-football/index.html?pos=TE&yr=${req.params.id}&wk=all&rules=1`, function(error, response, html){
+            let tightEnds = [];
+            let $ = cheerio.load(html);
+            $('tbody:nth-child(2)').find('tr').each(function(i = 0, tr){
+                let player = {
+                    name: $(tr).find('.hidden-xs').find('a').text(),
+                    link: `https://www.footballdb.com/${$(tr).find('.hidden-xs').find('a').attr('href')}`,
+                    totalpts: $(tr).find('.hilite').text(),
+                    passingStats: {
+                        att: $(tr).find('td:nth-child(4)').text(),
+                        cmp: $(tr).find('td:nth-child(5)').text(), 
+                        yds: $(tr).find('td:nth-child(6)').text(),
+                        td: $(tr).find('td:nth-child(7)').text(),
+                        int: $(tr).find('td:nth-child(8)').text(),
+                        twoPt: $(tr).find('td:nth-child(9)').text()
+                    },
+                    rushingStats: {
+                        att: $(tr).find('td:nth-child(10)').text(),
+                        yds: $(tr).find('td:nth-child(11)').text(),
+                        td: $(tr).find('td:nth-child(12)').text(),
+                        twoPt: $(tr).find('td:nth-child(13)').text()                
+                    },
+                    receivingStats : {
+                        rec: $(tr).find('td:nth-child(14)').text(),
+                        yds: $(tr).find('td:nth-child(15)').text(),
+                        td: $(tr).find('td:nth-child(16)').text(),
+                        twoPt: $(tr).find('td:nth-child(17)').text()
+                    },
+                    fl: $(tr).find('td:nth-child(18)').text()
+                }
+                tightEnds.push(player);
+                return tightEnds;
+            })
+            res.send(tightEnds)
+        })
+    });
+
+    //Get QB Stats
+    app.get('/rbStats/:id', function(req, res){
+        request(`https://www.footballdb.com/fantasy-football/index.html?pos=RB&yr=${req.params.id}&wk=all&rules=1`, function(error, response, html){
+            let runningBacks = [];
+            let $ = cheerio.load(html);
+            $('tbody:nth-child(2)').find('tr').each(function(i = 0, tr){
+                let player = {
+                    name: $(tr).find('.hidden-xs').find('a').text(),
+                    link: `https://www.footballdb.com/${$(tr).find('.hidden-xs').find('a').attr('href')}`,
+                    totalpts: $(tr).find('.hilite').text(),
+                    passingStats: {
+                        att: $(tr).find('td:nth-child(4)').text(),
+                        cmp: $(tr).find('td:nth-child(5)').text(), 
+                        yds: $(tr).find('td:nth-child(6)').text(),
+                        td: $(tr).find('td:nth-child(7)').text(),
+                        int: $(tr).find('td:nth-child(8)').text(),
+                        twoPt: $(tr).find('td:nth-child(9)').text()
+                    },
+                    rushingStats: {
+                        att: $(tr).find('td:nth-child(10)').text(),
+                        yds: $(tr).find('td:nth-child(11)').text(),
+                        td: $(tr).find('td:nth-child(12)').text(),
+                        twoPt: $(tr).find('td:nth-child(13)').text()                
+                    },
+                    receivingStats : {
+                        rec: $(tr).find('td:nth-child(14)').text(),
+                        yds: $(tr).find('td:nth-child(15)').text(),
+                        td: $(tr).find('td:nth-child(16)').text(),
+                        twoPt: $(tr).find('td:nth-child(17)').text()
+                    },
+                    fl: $(tr).find('td:nth-child(18)').text()
+                }
+                runningBacks.push(player);
+                return runningBacks;
+            })
+            res.send(runningBacks)
+        })
+    });
 }
