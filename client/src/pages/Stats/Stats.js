@@ -6,7 +6,7 @@ import { Button } from '@material-ui/core';
 
 const date = new Date();
 
-class Dashboard extends Component {
+class Stats extends Component {
 
     state = {
         tabValue: '',
@@ -155,4 +155,4 @@ class Dashboard extends Component {
     }
 }
 
-export default Dashboard;
+export default Stats;
