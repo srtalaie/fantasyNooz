@@ -10,26 +10,26 @@ export default {
     },
 
     getRBStats: function(year){
-        return axios.get(`/rbStats/${year}`)
+        return axios.get(`/api/rbStats/${year}`)
     },
 
     getWRStats: function(year){
-        return axios.get(`/wrStats/${year}`)
+        return axios.get(`/api/wrStats/${year}`)
     },
 
     getTEStats: function(year){
-        return axios.get(`/teStats/${year}`)
+        return axios.get(`/api/teStats/${year}`)
     },
 
     getQBStats: function(year){
-        return axios.get(`/qbStats/${year}`)
+        return axios.get(`/api/qbStats/${year}`)
     },
 
     getKStats: function(year){
-        return axios.get(`/kStats/${year}`)
+        return axios.get(`/api/kStats/${year}`)
     },
 
     getDSTStats: function(year){
-        return axios.get(`/dstStats/${year}`)
+        return axios.get(`/api/dstStats/${year}`)
     }
 }

@@ -103,7 +103,7 @@ module.exports = function(app){
     });
 
     //Get RB Stats
-    app.get('/rbStats/:year', function(req, res){
+    app.get('/api/rbStats/:year', function(req, res){
         request(`https://www.footballdb.com/fantasy-football/index.html?pos=RB&yr=${req.params.year}&wk=all&rules=1`, function(error, response, html){
             let runningBacks = [];
             let $ = cheerio.load(html);
@@ -142,7 +142,7 @@ module.exports = function(app){
     });
 
     //Get WR Stats
-    app.get('/wrStats/:year', function(req, res){
+    app.get('/api/wrStats/:year', function(req, res){
         request(`https://www.footballdb.com/fantasy-football/index.html?pos=WR&yr=${req.params.year}&wk=all&rules=1`, function(error, response, html){
             let wideReceivers = [];
             let $ = cheerio.load(html);
@@ -181,7 +181,7 @@ module.exports = function(app){
     });
 
     //Get TE Stats
-    app.get('/teStats/:year', function(req, res){
+    app.get('/api/teStats/:year', function(req, res){
         request(`https://www.footballdb.com/fantasy-football/index.html?pos=TE&yr=${req.params.year}&wk=all&rules=1`, function(error, response, html){
             let tightEnds = [];
             let $ = cheerio.load(html);
@@ -220,7 +220,7 @@ module.exports = function(app){
     });
 
     //Get QB Stats
-    app.get('/qbStats/:year', function(req, res){
+    app.get('/api/qbStats/:year', function(req, res){
         request(`https://www.footballdb.com/fantasy-football/index.html?pos=QB&yr=${req.params.year}&wk=all&rules=1`, function(error, response, html){
             let runningBacks = [];
             let $ = cheerio.load(html);
@@ -259,7 +259,7 @@ module.exports = function(app){
     });
 
     //Get K Stats
-    app.get('/kStats/:year', function(req, res){
+    app.get('/api/kStats/:year', function(req, res){
         request(`https://www.footballdb.com/fantasy-football/index.html?pos=K&yr=${req.params.year}&wk=all&rules=1`, function(error, response, html){
             let kickers = [];
             let $ = cheerio.load(html);
@@ -282,7 +282,7 @@ module.exports = function(app){
     });
 
     //Get DST Stats
-    app.get('/dstStats/:year', function(req, res){
+    app.get('/api/dstStats/:year', function(req, res){
         request(`https://www.footballdb.com/fantasy-football/index.html?pos=DST&yr=${req.params.year}&wk=all&rules=1`, function(error, response, html){
             let dst = [];
             let $ = cheerio.load(html);
