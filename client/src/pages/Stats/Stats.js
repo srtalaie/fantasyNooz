@@ -21,6 +21,7 @@ class Dashboard extends Component {
 
     componentDidMount(){
         this.populateYears();
+        this.setState({ year: '2019' })
     }
 
     populateYears = () => {
@@ -101,7 +102,7 @@ class Dashboard extends Component {
         return(
             <div className="container">
                 <div>
-                    <select>
+                    <select onChange={this.handleGetYear} name='year'>
                         <option value={this.state.years[0]}>{this.state.years[0]}</option>
                         <option value={this.state.years[1]}>{this.state.years[1]}</option>
                         <option value={this.state.years[2]}>{this.state.years[2]}</option>
