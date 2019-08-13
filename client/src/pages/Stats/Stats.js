@@ -4,6 +4,8 @@ import FantasyProsCard from '../../components/FantasyProsCard.js';
 import '../ADPTable/style.css';
 import { Button } from '@material-ui/core';
 
+const date = new Date();
+
 class Dashboard extends Component {
 
     state = {
@@ -13,26 +15,76 @@ class Dashboard extends Component {
         rbStats: [],
         teStats: [],
         kStats: [],
-        dstStats: []
+        dstStats: [],
+        years: []
     }
 
     componentDidMount(){
-        this.loadArticleData();
-        this.loadADPData();
+        this.populateYears();
     }
 
-    loadArticleData = () => {
-        API.getRedditPosts()
+    populateYears = () => {
+        let currDate = parseInt(date.getFullYear());
+        let startDate = currDate - 6;
+        let yearsArr = [];
+        while(currDate > startDate){
+            yearsArr.push(currDate.toString());
+            currDate--;
+        }
+        this.setState({ years: yearsArr })
+    }
+
+    handleGetYear = (e) => {
+        const { name, value } = e.target
+        this.setState({
+        [name]: value
+        })
+    }
+
+    loadQBData = () => {
+        API.getQBStats(this.state.year)
         .then(
-            res => this.setState({ posts: res.data })
+            res => this.setState({ qbStats: res.data })
         )
         .catch(err => console.log(err))
     }
 
-    loadADPData = () => {
-        API.getFantasyProsADPs()
+    loadRBData = () => {
+        API.getRBStats(this.state.year)
         .then(
-            res => this.setState({ adp: res.data })
+            res => this.setState({ rbStats: res.data })
+        )
+        .catch(err => console.log(err))
+    }
+
+    loadWRData = () => {
+        API.getQBStats(this.state.year)
+        .then(
+            res => this.setState({ wrStats: res.data })
+        )
+        .catch(err => console.log(err))
+    }
+
+    loadTEData = () => {
+        API.getQBStats(this.state.year)
+        .then(
+            res => this.setState({ teStats: res.data })
+        )
+        .catch(err => console.log(err))
+    }
+
+    loadDSTData = () => {
+        API.getDSTStats(this.state.year)
+        .then(
+            res => this.setState({ dstStats: res.data })
+        )
+        .catch(err => console.log(err))
+    }
+
+    loadKData = () => {
+        API.getKStats(this.state.year)
+        .then(
+            res => this.setState({ kStats: res.data })
         )
         .catch(err => console.log(err))
     }
