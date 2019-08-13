@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import API from '../../utils/API.js';
-import FantasyProsCard from '../../components/FantasyProsCard.js';
 import '../ADPTable/style.css';
 import { Button } from '@material-ui/core';
+
 
 const date = new Date();
 
 class Dashboard extends Component {
 
     state = {
+        tabValue: '',
         year: '',
         qbStats: [],
         wrStats: [],
@@ -16,12 +17,37 @@ class Dashboard extends Component {
         teStats: [],
         kStats: [],
         dstStats: [],
+        flexStats: [],
         years: []
     }
 
     componentDidMount(){
         this.populateYears();
-        this.setState({ year: '2019' })
+        this.setState({ year: this.state.years[1] });
+        this.runPromises();
+    }
+
+    submitYear = () =>{
+        this.runPromises();
+    }
+
+    runPromises = () => {
+        let that = this;
+        Promise.resolve().then(function(){
+            return that.loadQBData();
+        }).then(function(){
+            return that.loadRBData();
+        }).then(function(){
+            return that.loadWRData();
+        }).then(function(){
+            return that.loadTEData();
+        }).then(function(){
+            return that.loadFlexData();
+        }).then(function(){
+            return that.loadKData();
+        }).then(function(){
+            return that.loadDSTData();
+        });
     }
 
     populateYears = () => {
@@ -35,10 +61,10 @@ class Dashboard extends Component {
         this.setState({ years: yearsArr })
     }
 
-    handleGetYear = (e) => {
+    handleChange = (e) => {
         const { name, value } = e.target
         this.setState({
-        [name]: value
+            [name]: value
         })
     }
 
@@ -90,19 +116,20 @@ class Dashboard extends Component {
         .catch(err => console.log(err))
     }
 
-    toggleADPTable = () => {
-        if(this.state.showHideRanks){
-            this.setState({ showHideRanks: false })
-        }else{
-            this.setState({ showHideRanks: true })
-        }
+    loadFlexData = () => {
+        API.getFlexStats(this.state.year)
+        .then(
+            res => this.setState({ flexStats: res.data })
+        )
+        .catch(err => console.log(err))
     }
 
     render(){
         return(
             <div className="container">
-                <div>
-                    <select onChange={this.handleGetYear} name='year'>
+                <div className="yearContainer">
+                    <select onChange={this.handleChange} name='year'>
+                        <option value={this.state.year}>{this.state.year}</option>
                         <option value={this.state.years[0]}>{this.state.years[0]}</option>
                         <option value={this.state.years[1]}>{this.state.years[1]}</option>
                         <option value={this.state.years[2]}>{this.state.years[2]}</option>
@@ -110,6 +137,18 @@ class Dashboard extends Component {
                         <option value={this.state.years[4]}>{this.state.years[4]}</option>
                         <option value={this.state.years[5]}>{this.state.years[5]}</option>
                     </select>
+                    <Button onClick={this.submitYear}>Submit Year</Button>
+                </div>
+                <div className="statsContainer">
+                    <div className="navbar">
+                        <Button value="qb" onClick={this.handleChange} name="tabValue">Quarter Backs</Button>
+                        <Button value="rb" onClick={this.handleChange} name="tabValue">Running Backs</Button>
+                        <Button value="wr" onClick={this.handleChange} name="tabValue">Wide Recievers</Button>
+                        <Button value="te" onClick={this.handleChange} name="tabValue">Tight Ends</Button>
+                        <Button value="flex" onClick={this.handleChange} name="tabValue">Flex</Button>
+                        <Button value="k" onClick={this.handleChange} name="tabValue">Kickers</Button>
+                        <Button value="dst" onClick={this.handleChange} name="tabValue">Defense/Special Teams</Button>
+                    </div>
                 </div>
             </div>
         );

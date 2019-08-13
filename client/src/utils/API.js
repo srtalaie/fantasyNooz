@@ -31,5 +31,9 @@ export default {
 
     getDSTStats: function(year){
         return axios.get(`/api/dstStats/${year}`)
+    },
+
+    getFlexStats: function(year){
+        return axios.get(`/api/flexStats/${year}`)
     }
 }
