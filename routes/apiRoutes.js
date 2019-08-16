@@ -299,7 +299,7 @@ module.exports = function(app){
                     td: $(tr).find('td:nth-child(9)').text(),
                     pa: $(tr).find('td:nth-child(10)').text(),
                     passYG: $(tr).find('td:nth-child(11)').text(),
-                    ryshYG: $(tr).find('td:nth-child(12)').text(),
+                    rushYG: $(tr).find('td:nth-child(12)').text(),
                     totalYG: $(tr).find('td:nth-child(13)').text()
     
                 }
