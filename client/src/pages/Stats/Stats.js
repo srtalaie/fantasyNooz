@@ -135,6 +135,7 @@ class Stats extends Component {
     }
 
     render(){
+        
         let content = ''
         switch(this.state.tabValue){
             case 'qb':
