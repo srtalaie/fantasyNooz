@@ -11,8 +11,13 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 
 // Define middleware here
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 
 //API routes
 require('./routes/apiRoutes.js')(app);
