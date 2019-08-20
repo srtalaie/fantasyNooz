@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import API from '../../utils/API.js';
-import '../ADPTable/style.css';
+import '../Stats/style.css';
 import { Button } from '@material-ui/core';
 import QbRbWrTECard from '../../components/QbRbWrTeCard.js';
 import DSTCard from '../../components/DSTCard.js';
@@ -72,6 +72,7 @@ class Stats extends Component {
     }
 
     handleClick = (e) => {
+        e.preventDefault();
         const { name, value } = e.target
         this.setState({
             [name]: value
@@ -466,7 +467,7 @@ class Stats extends Component {
                 break;
             default:
                 content = ''
-                content = <div>Please choose which year and which position you would like to view the stats for.</div>
+                content = <div>Please choose which year and which position you would like to view the stats for. The year will default on the previous year.</div>
         }
         
         return(
@@ -485,13 +486,13 @@ class Stats extends Component {
                 </div>
                 <div className="statsNavBar">
                     <div className="navbar">
-                        <Button value="qb" onClick={this.handleClick} name="tabValue">Quarter Backs</Button>
-                        <Button value="rb" onClick={this.handleClick} name="tabValue">Running Backs</Button>
-                        <Button value="wr" onClick={this.handleClick} name="tabValue">Wide Recievers</Button>
-                        <Button value="te" onClick={this.handleClick} name="tabValue">Tight Ends</Button>
-                        <Button value="flex" onClick={this.handleClick} name="tabValue">Flex</Button>
-                        <Button value="k" onClick={this.handleClick} name="tabValue">Kickers</Button>
-                        <Button value="dst" onClick={this.handleClick} name="tabValue">D/ST</Button>
+                        <button className="tabButtons" value="qb" onClick={this.handleClick} name="tabValue">Quarter Backs</button>
+                        <button className="tabButtons" value="rb" onClick={this.handleClick} name="tabValue">Running Backs</button>
+                        <button className="tabButtons" value="wr" onClick={this.handleClick} name="tabValue">Wide Recievers</button>
+                        <button className="tabButtons" value="te" onClick={this.handleClick} name="tabValue">Tight Ends</button>
+                        <button className="tabButtons" value="flex" onClick={this.handleClick} name="tabValue">Flex</button>
+                        <button className="tabButtons" value="k" onClick={this.handleClick} name="tabValue">Kickers</button>
+                        <button className="tabButtons" value="dst" onClick={this.handleClick} name="tabValue">D/ST</button>
                     </div>
                 </div>
                 <div className="statsContainer">
