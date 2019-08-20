@@ -1,0 +1,15 @@
+.navbar {
+    display: flex;
+}
+
+.navStyle {
+    color: black;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 10px;
+}
+
+.navStyle:visited {
+    color: black;
+}
