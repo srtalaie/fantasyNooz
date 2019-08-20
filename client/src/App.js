@@ -2,6 +2,7 @@ import React from 'react';
 import ADPTable from './pages/ADPTable/ADPTable.js';
 import Articles from './pages/Articles/Articles.js';
 import Stats from './pages/Stats/Stats.js'
+import Home from './pages/Home/Home.js'
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import './style.css';
 
@@ -11,9 +12,9 @@ function App() {
       <div>
         <div>
           <ul className="navbar">
-            {/* <li>
+            <li>
               <Link to="/">Home</Link>
-            </li> */}
+            </li>
             <li className="navStyle">
               <Link to="/adptable/">ADP Table</Link>
             </li>
@@ -25,8 +26,8 @@ function App() {
             </li>
           </ul>
         </div>
-        {/* <Route path="/" exact component={Index} />  NO INDEX YET*/}
         <Switch>
+          <Route exact path="/" component={Home} />
           <Route path="/adptable/" component={ADPTable} />
           <Route path="/articles/" component={Articles} />
           <Route path="/stats/" component={Stats} />
