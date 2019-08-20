@@ -103,8 +103,8 @@ module.exports = function(app){
     });
 
     //Get RB Stats
-    app.get('/api/rbStats/:year', function(req, res){
-        request(`https://www.footballdb.com/fantasy-football/index.html?pos=RB&yr=${req.params.year}&wk=all&rules=1`, function(error, response, html){
+    app.get('/api/rbStats/:year/:week', function(req, res){
+        request(`https://www.footballdb.com/fantasy-football/index.html?pos=RB&yr=${req.params.year}&wk=${req.params.week}&rules=1`, function(error, response, html){
             let runningBacks = [];
             let $ = cheerio.load(html);
             $('tbody:nth-child(2)').find('tr').each(function(i = 0, tr){
@@ -142,8 +142,8 @@ module.exports = function(app){
     });
 
     //Get WR Stats
-    app.get('/api/wrStats/:year', function(req, res){
-        request(`https://www.footballdb.com/fantasy-football/index.html?pos=WR&yr=${req.params.year}&wk=all&rules=1`, function(error, response, html){
+    app.get('/api/wrStats/:year/:week', function(req, res){
+        request(`https://www.footballdb.com/fantasy-football/index.html?pos=WR&yr=${req.params.year}&wk=${req.params.week}&rules=1`, function(error, response, html){
             let wideReceivers = [];
             let $ = cheerio.load(html);
             $('tbody:nth-child(2)').find('tr').each(function(i = 0, tr){
@@ -181,8 +181,8 @@ module.exports = function(app){
     });
 
     //Get TE Stats
-    app.get('/api/teStats/:year', function(req, res){
-        request(`https://www.footballdb.com/fantasy-football/index.html?pos=TE&yr=${req.params.year}&wk=all&rules=1`, function(error, response, html){
+    app.get('/api/teStats/:year/:week', function(req, res){
+        request(`https://www.footballdb.com/fantasy-football/index.html?pos=TE&yr=${req.params.year}&wk=${req.params.week}&rules=1`, function(error, response, html){
             let tightEnds = [];
             let $ = cheerio.load(html);
             $('tbody:nth-child(2)').find('tr').each(function(i = 0, tr){
@@ -220,8 +220,8 @@ module.exports = function(app){
     });
 
     //Get QB Stats
-    app.get('/api/qbStats/:year', function(req, res){
-        request(`https://www.footballdb.com/fantasy-football/index.html?pos=QB&yr=${req.params.year}&wk=all&rules=1`, function(error, response, html){
+    app.get('/api/qbStats/:year/:week', function(req, res){
+        request(`https://www.footballdb.com/fantasy-football/index.html?pos=QB&yr=${req.params.year}&wk=${req.params.week}&rules=1`, function(error, response, html){
             let runningBacks = [];
             let $ = cheerio.load(html);
             $('tbody:nth-child(2)').find('tr').each(function(i = 0, tr){
@@ -259,8 +259,8 @@ module.exports = function(app){
     });
 
     //Get K Stats
-    app.get('/api/kStats/:year', function(req, res){
-        request(`https://www.footballdb.com/fantasy-football/index.html?pos=K&yr=${req.params.year}&wk=all&rules=1`, function(error, response, html){
+    app.get('/api/kStats/:year/:week', function(req, res){
+        request(`https://www.footballdb.com/fantasy-football/index.html?pos=K&yr=${req.params.year}&wk=${req.params.week}&rules=1`, function(error, response, html){
             let kickers = [];
             let $ = cheerio.load(html);
             $('tbody:nth-child(2)').find('tr').each(function(i = 0, tr){
@@ -282,8 +282,8 @@ module.exports = function(app){
     });
 
     //Get DST Stats
-    app.get('/api/dstStats/:year', function(req, res){
-        request(`https://www.footballdb.com/fantasy-football/index.html?pos=DST&yr=${req.params.year}&wk=all&rules=1`, function(error, response, html){
+    app.get('/api/dstStats/:year/:week', function(req, res){
+        request(`https://www.footballdb.com/fantasy-football/index.html?pos=DST&yr=${req.params.year}&wk=${req.params.week}&rules=1`, function(error, response, html){
             let dst = [];
             let $ = cheerio.load(html);
             $('tbody:nth-child(2)').find('tr').each(function(i = 0, tr){
@@ -311,8 +311,8 @@ module.exports = function(app){
     });
 
     //Get Flex Stats
-    app.get('/api/flexStats/:year', function(req, res){
-        request(`https://www.footballdb.com/fantasy-football/index.html?pos=RB%2CWR%2CTE&yr=${req.params.year}&wk=all&rules=1`, function(error, response, html){
+    app.get('/api/flexStats/:year/:week', function(req, res){
+        request(`https://www.footballdb.com/fantasy-football/index.html?pos=RB%2CWR%2CTE&yr=${req.params.year}&wk=${req.params.week}&rules=1`, function(error, response, html){
             let flexPlayers = [];
             let $ = cheerio.load(html);
             $('tbody:nth-child(2)').find('tr').each(function(i = 0, tr){

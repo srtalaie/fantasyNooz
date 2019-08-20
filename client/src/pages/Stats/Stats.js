@@ -20,13 +20,15 @@ class Stats extends Component {
         kStats: [],
         dstStats: [],
         flexStats: [],
-        years: []
+        years: [],
+        week: ''
     }
 
     componentDidMount(){
         this.populateYears();
         this.setState({ year: this.state.years[1] });
         this.runPromises();
+        this.setState({ week: 'all' });
     }
 
     submitYear = () =>{
@@ -80,7 +82,7 @@ class Stats extends Component {
     }
 
     loadQBData = () => {
-        API.getQBStats(this.state.year)
+        API.getQBStats(this.state.year, this.state.week)
         .then(
             res => this.setState({ qbStats: res.data })
         )
@@ -88,7 +90,7 @@ class Stats extends Component {
     }
 
     loadRBData = () => {
-        API.getRBStats(this.state.year)
+        API.getRBStats(this.state.year, this.state.week)
         .then(
             res => this.setState({ rbStats: res.data })
         )
@@ -96,7 +98,7 @@ class Stats extends Component {
     }
 
     loadWRData = () => {
-        API.getWRStats(this.state.year)
+        API.getWRStats(this.state.year, this.state.week)
         .then(
             res => this.setState({ wrStats: res.data })
         )
@@ -104,7 +106,7 @@ class Stats extends Component {
     }
 
     loadTEData = () => {
-        API.getTEStats(this.state.year)
+        API.getTEStats(this.state.year, this.state.week)
         .then(
             res => this.setState({ teStats: res.data })
         )
@@ -112,7 +114,7 @@ class Stats extends Component {
     }
 
     loadDSTData = () => {
-        API.getDSTStats(this.state.year)
+        API.getDSTStats(this.state.year, this.state.week)
         .then(
             res => this.setState({ dstStats: res.data })
         )
@@ -120,7 +122,7 @@ class Stats extends Component {
     }
 
     loadKData = () => {
-        API.getKStats(this.state.year)
+        API.getKStats(this.state.year, this.state.week)
         .then(
             res => this.setState({ kStats: res.data })
         )
@@ -128,7 +130,7 @@ class Stats extends Component {
     }
 
     loadFlexData = () => {
-        API.getFlexStats(this.state.year)
+        API.getFlexStats(this.state.year, this.state.week)
         .then(
             res => this.setState({ flexStats: res.data })
         )
@@ -472,7 +474,7 @@ class Stats extends Component {
         
         return(
             <div className="container">
-                <div className="yearContainer">
+                <div className="yearWeekContainer">
                     <select onChange={this.handleChange} name='year'>
                         <option value={this.state.year}>{this.state.year}</option>
                         <option value={this.state.years[0]}>{this.state.years[0]}</option>
@@ -482,7 +484,27 @@ class Stats extends Component {
                         <option value={this.state.years[4]}>{this.state.years[4]}</option>
                         <option value={this.state.years[5]}>{this.state.years[5]}</option>
                     </select>
-                    <Button onClick={this.submitYear}>Submit Year</Button>
+                    <select onChange={this.handleChange} name='week'>
+                        <option value='all'>ALL</option>
+                        <option value='1'>1</option>
+                        <option value='2'>2</option>
+                        <option value='3'>3</option>
+                        <option value='4'>4</option>
+                        <option value='5'>5</option>
+                        <option value='6'>6</option>
+                        <option value='7'>7</option>
+                        <option value='8'>8</option>
+                        <option value='9'>9</option>
+                        <option value='10'>10</option>
+                        <option value='11'>11</option>
+                        <option value='12'>12</option>
+                        <option value='13'>13</option>
+                        <option value='14'>14</option>
+                        <option value='15'>15</option>
+                        <option value='16'>16</option>
+                        <option value='17'>17</option>
+                    </select>
+                    <Button onClick={this.submitYear}>Submit Year & Week</Button>
                 </div>
                 <div className="statsNavBar">
                     <div className="navbar">

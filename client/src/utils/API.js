@@ -9,31 +9,31 @@ export default {
         return axios.get('/api/getRticles')
     },
 
-    getRBStats: function(year){
-        return axios.get(`/api/rbStats/${year}`)
+    getRBStats: function(year, week){
+        return axios.get(`/api/rbStats/${year}/${week}`)
     },
 
-    getWRStats: function(year){
-        return axios.get(`/api/wrStats/${year}`)
+    getWRStats: function(year, week){
+        return axios.get(`/api/wrStats/${year}/${week}`)
     },
 
-    getTEStats: function(year){
-        return axios.get(`/api/teStats/${year}`)
+    getTEStats: function(year, week){
+        return axios.get(`/api/teStats/${year}/${week}`)
     },
 
-    getQBStats: function(year){
-        return axios.get(`/api/qbStats/${year}`)
+    getQBStats: function(year, week){
+        return axios.get(`/api/qbStats/${year}/${week}`)
     },
 
-    getKStats: function(year){
-        return axios.get(`/api/kStats/${year}`)
+    getKStats: function(year, week){
+        return axios.get(`/api/kStats/${year}/${week}`)
     },
 
-    getDSTStats: function(year){
-        return axios.get(`/api/dstStats/${year}`)
+    getDSTStats: function(year, week){
+        return axios.get(`/api/dstStats/${year}/${week}`)
     },
 
-    getFlexStats: function(year){
-        return axios.get(`/api/flexStats/${year}`)
+    getFlexStats: function(year, week){
+        return axios.get(`/api/flexStats/${year}/${week}`)
     }
 }
