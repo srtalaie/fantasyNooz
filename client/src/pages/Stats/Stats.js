@@ -5,6 +5,7 @@ import { Button } from '@material-ui/core';
 import QbRbWrTECard from '../../components/QbRbWrTeCard.js';
 import DSTCard from '../../components/DSTCard.js';
 import KCard from '../../components/KCard.js';
+import Footer from '../../components/Footer.js';
 
 const date = new Date();
 
@@ -473,53 +474,56 @@ class Stats extends Component {
         }
         
         return(
-            <div className="container">
-                <div className="yearWeekContainer">
-                    <select onChange={this.handleChange} name='year'>
-                        <option value={this.state.year}>{this.state.year}</option>
-                        <option value={this.state.years[0]}>{this.state.years[0]}</option>
-                        <option value={this.state.years[1]}>{this.state.years[1]}</option>
-                        <option value={this.state.years[2]}>{this.state.years[2]}</option>
-                        <option value={this.state.years[3]}>{this.state.years[3]}</option>
-                        <option value={this.state.years[4]}>{this.state.years[4]}</option>
-                        <option value={this.state.years[5]}>{this.state.years[5]}</option>
-                    </select>
-                    <select onChange={this.handleChange} name='week'>
-                        <option value='all'>ALL</option>
-                        <option value='1'>1</option>
-                        <option value='2'>2</option>
-                        <option value='3'>3</option>
-                        <option value='4'>4</option>
-                        <option value='5'>5</option>
-                        <option value='6'>6</option>
-                        <option value='7'>7</option>
-                        <option value='8'>8</option>
-                        <option value='9'>9</option>
-                        <option value='10'>10</option>
-                        <option value='11'>11</option>
-                        <option value='12'>12</option>
-                        <option value='13'>13</option>
-                        <option value='14'>14</option>
-                        <option value='15'>15</option>
-                        <option value='16'>16</option>
-                        <option value='17'>17</option>
-                    </select>
-                    <Button onClick={this.submitYear}>Submit Year & Week</Button>
-                </div>
-                <div className="statsNavBar">
-                    <div className="navbar">
-                        <button className="tabButtons" value="qb" onClick={this.handleClick} name="tabValue">Quarter Backs</button>
-                        <button className="tabButtons" value="rb" onClick={this.handleClick} name="tabValue">Running Backs</button>
-                        <button className="tabButtons" value="wr" onClick={this.handleClick} name="tabValue">Wide Recievers</button>
-                        <button className="tabButtons" value="te" onClick={this.handleClick} name="tabValue">Tight Ends</button>
-                        <button className="tabButtons" value="flex" onClick={this.handleClick} name="tabValue">Flex</button>
-                        <button className="tabButtons" value="k" onClick={this.handleClick} name="tabValue">Kickers</button>
-                        <button className="tabButtons" value="dst" onClick={this.handleClick} name="tabValue">D/ST</button>
+            <div>
+                <div className="container">
+                    <div className="yearWeekContainer">
+                        <select onChange={this.handleChange} name='year'>
+                            <option value={this.state.year}>{this.state.year}</option>
+                            <option value={this.state.years[0]}>{this.state.years[0]}</option>
+                            <option value={this.state.years[1]}>{this.state.years[1]}</option>
+                            <option value={this.state.years[2]}>{this.state.years[2]}</option>
+                            <option value={this.state.years[3]}>{this.state.years[3]}</option>
+                            <option value={this.state.years[4]}>{this.state.years[4]}</option>
+                            <option value={this.state.years[5]}>{this.state.years[5]}</option>
+                        </select>
+                        <select onChange={this.handleChange} name='week'>
+                            <option value='all'>ALL</option>
+                            <option value='1'>1</option>
+                            <option value='2'>2</option>
+                            <option value='3'>3</option>
+                            <option value='4'>4</option>
+                            <option value='5'>5</option>
+                            <option value='6'>6</option>
+                            <option value='7'>7</option>
+                            <option value='8'>8</option>
+                            <option value='9'>9</option>
+                            <option value='10'>10</option>
+                            <option value='11'>11</option>
+                            <option value='12'>12</option>
+                            <option value='13'>13</option>
+                            <option value='14'>14</option>
+                            <option value='15'>15</option>
+                            <option value='16'>16</option>
+                            <option value='17'>17</option>
+                        </select>
+                        <Button onClick={this.submitYear}>Submit Year & Week</Button>
+                    </div>
+                    <div>
+                        <div className="statsNavBar">
+                            <button className="tabButtons" value="qb" onClick={this.handleClick} name="tabValue">Quarter Backs</button>
+                            <button className="tabButtons" value="rb" onClick={this.handleClick} name="tabValue">Running Backs</button>
+                            <button className="tabButtons" value="wr" onClick={this.handleClick} name="tabValue">Wide Recievers</button>
+                            <button className="tabButtons" value="te" onClick={this.handleClick} name="tabValue">Tight Ends</button>
+                            <button className="tabButtons" value="flex" onClick={this.handleClick} name="tabValue">Flex</button>
+                            <button className="tabButtons" value="k" onClick={this.handleClick} name="tabValue">Kickers</button>
+                            <button className="tabButtons" value="dst" onClick={this.handleClick} name="tabValue">D/ST</button>
+                        </div>
+                    </div>
+                    <div className="statsContainer">
+                        {content}
                     </div>
                 </div>
-                <div className="statsContainer">
-                    {content}
-                </div>
+                <Footer />
             </div>
         );
     }

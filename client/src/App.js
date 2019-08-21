@@ -28,7 +28,7 @@ function App() {
           <Route path="/adptable/" component={ADPTable} />
           <Route path="/articles/" component={Articles} />
           <Route path="/stats/" component={Stats} />
-        </Switch> 
+        </Switch>
     </Router>   
   );
 }

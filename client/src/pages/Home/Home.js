@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import Hero from '../../components/Hero.js';
-
-
+import Footer from '../../components/Footer.js';
 
 class Home extends Component {
 
     render(){
         return(
-                <Hero
-                    
-                />
+            <div>
+                <Hero />
+                <Footer />
+            </div>
         );
     }
 }
