@@ -1,16 +1,21 @@
 .navbar {
     display: flex;
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-}
-
-.navStyle {
-    color: black;
+    background-color: black;
+    flex-direction: row-reverse;
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    margin-left: 10px;
+    min-height: 3em;
+    align-items: center;
+    border-bottom: 3px solid grey;
 }
 
-Link:visited {
-    color: black;
+.link {
+    color: whitesmoke;
+    text-decoration: none;
+    margin: 10px;
+}
+
+.link:visited {
+    color: whitesmoke;
 }

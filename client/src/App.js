@@ -9,30 +9,26 @@ import './style.css';
 function App() {
   return (
     <Router>
-      <div>
-        <div>
           <ul className="navbar">
             <li>
-              <Link to="/">Home</Link>
+              <Link className='link' to="/adptable/">ADP Table</Link>
             </li>
-            <li className="navStyle">
-              <Link to="/adptable/">ADP Table</Link>
+            <li>
+              <Link className='link' to="/articles/">Articles</Link>
             </li>
-            <li className="navStyle">
-              <Link to="/articles/">Articles</Link>
+            <li>
+              <Link className='link' to="/stats/">Stats</Link>
             </li>
-            <li className="navStyle">
-              <Link to="/stats/">Stats</Link>
+            <li>
+              <Link className='link' to="/">Home</Link>
             </li>
           </ul>
-        </div>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/adptable/" component={ADPTable} />
           <Route path="/articles/" component={Articles} />
           <Route path="/stats/" component={Stats} />
         </Switch> 
-      </div>
     </Router>   
   );
 }
