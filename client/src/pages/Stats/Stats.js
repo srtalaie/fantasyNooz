@@ -507,6 +507,8 @@ class Stats extends Component {
                             <option value='17'>17</option>
                         </select>
                         <Button onClick={this.submitYear}>Submit Year & Week</Button>
+                        <p>Start by selecting the year and week you want to see (select ALL if you want stats from all of the season)</p>
+                        <p>Hit submit, then select which position tab you wish to see the stats from.</p>
                     </div>
                     <div>
                         <div className="statsNavBar">

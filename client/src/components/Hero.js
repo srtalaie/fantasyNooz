@@ -33,6 +33,14 @@ const Hero = () => (
             <span style={spanStyle}><h1 style={headingStyle}>FantasyNooz</h1></span>
         </div>
         <Typography align='center' variant='h5' style={aboutPara}>FantasyNooz is your dashboard for all things fantasy football. Look at the latest ADPs, articles, and look up stats to help you win your league.</Typography>
+        <Typography align='center' variant='h5' style={aboutPara}>For more help check out this site. This <a href='https://footballabsurdity.com/beersheet-request-form/'>sheet</a> has helped millions reach the summit of glory that is winning their fantasy football league.</Typography>
+        <Typography align='center' variant='h5' style={aboutPara}>Each page will give you a tool to add to your fantasy football rearch arsenal.
+            <ul>
+                <li>Look up recent ADPs to see which players are trending.</li>
+                <li>Utilize reddit's r/fantasyfootball posts to stay up to date on news.</li>
+                <li>Utilize hard data from stats to draw your own conclusions.</li>
+            </ul>
+        </Typography>
     </div>
 );
 
