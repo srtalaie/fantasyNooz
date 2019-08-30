@@ -41,7 +41,7 @@ const Hero = () => (
         <Typography align='center' variant='h5' style={aboutPara}>FantasyNooz is your dashboard for all things fantasy football. Look at the latest ADPs, articles, and look up stats to help you win your league.</Typography>
         <Typography align='center' variant='h5' style={aboutPara}>For more help check out this site. This <a href='https://footballabsurdity.com/beersheet-request-form/'>sheet</a> has helped millions reach the summit of glory that is winning their fantasy football league.</Typography>
         <Typography align='center' variant='h5' style={aboutPara}>Each page will give you a tool to add to your fantasy football rearch arsenal.</Typography>
-        <Typography align='center' variant='h5' style={aboutPara}>Look up recent ADPs to see which players are trending. Utilize reddit's r/fantasyfootball posts to stay up to date on news. Use hard data from stats to draw your own conclusions.</Typography>
+        <Typography align='center' variant='h5' style={aboutPara}>Look up recent ADPs to see which players are trending. Utilize reddit's r/fantasyfootball posts to stay up to date on news. Use hard data from stats to draw your own conclusions. And check out the latest aggregrate of O-Line rankings to get that extra edge.</Typography>
         <Typography align='center' variant='h5' style={remember}>Remeber fantasy football isn't a game, it's a lifestyle.</Typography>
     </div>
 );

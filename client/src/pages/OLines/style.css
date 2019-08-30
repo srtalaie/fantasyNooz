@@ -8,3 +8,11 @@ iframe {
     width: 100%;
     left: 0;
 }
+
+.textBox {
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 5px 10px #888888;
+    margin-bottom: 15px;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}

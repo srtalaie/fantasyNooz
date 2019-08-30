@@ -74,3 +74,11 @@ li {
 tr:hover {
     background-color: rgb(238, 118, 118);
 }
+
+.description {
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 5px 10px #888888;
+    margin-bottom: 15px;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
