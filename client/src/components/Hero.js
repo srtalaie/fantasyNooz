@@ -43,6 +43,8 @@ const Hero = () => (
         <Typography align='center' variant='h5' style={aboutPara}>Each page will give you a tool to add to your fantasy football rearch arsenal.</Typography>
         <Typography align='center' variant='h5' style={aboutPara}>Look up recent ADPs to see which players are trending. Utilize reddit's r/fantasyfootball posts to stay up to date on news. Use hard data from stats to draw your own conclusions. And check out the latest aggregrate of O-Line rankings to get that extra edge.</Typography>
         <Typography align='center' variant='h5' style={remember}>Remeber fantasy football isn't a game, it's a lifestyle.</Typography>
+        <Typography align='center' variant='h5' style={remember}>Sites Used for Data: <a href="https://www.fantasypros.com/">Fantasy Pros</a>, <a href="https://docs.sleeper.app/">Sleeper App API</a>, <a href="https://old.reddit.com/r/fantasyfootball/">r/fantasyfootball</a>, <a href="https://www.4for4.com/">4for4</a>, <a href="https://www.footballdb.com/fantasy-football/">Football DB</a></Typography>
+        <Typography align='center' variant='h5' style={remember}><a href="https://github.com/srtalaie/fantasyNooz">GitHub Repo</a></Typography>
     </div>
 );
 
