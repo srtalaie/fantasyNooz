@@ -11,3 +11,4 @@ Sites Used for Data:<br />
 [r/fantasyfootball](https://old.reddit.com/r/fantasyfootball/)<br />
 [4for4](https://www.4for4.com/)<br />
 [Football DB](https://www.footballdb.com/fantasy-football/)<br />
+[Football Outsiders](https://www.footballoutsiders.com/)<br />
