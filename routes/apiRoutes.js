@@ -348,4 +348,135 @@ module.exports = function(app){
             res.send(flexPlayers)
         })
     });
+
+    //Football Outsiders team efficiency 
+    app.get('/fo/teameff/:year', function(req, res){
+        request(`https://www.footballoutsiders.com/stats/teameff/${req.params.year}`, function(error, response, html){
+            let teams = [];
+            let $ = cheerio.load(html);
+            $('table').find('tbody').find('tr').each(function(i = 0, tr){
+                if(i < 32){
+                    let team = {
+                        rank: $(tr).find('td:nth-child(1)').text(),
+                        name: $(tr).find('td:nth-child(2)').text(),
+                        totalDVOA: $(tr).find('td:nth-child(3)').text(),
+                        lastYear: $(tr).find('td:nth-child(4)').text(),
+                        nonAdjTotVOA: $(tr).find('td:nth-child(5)').text(),
+                        winsLoss: $(tr).find('td:nth-child(6)').text(),
+                        offDVOA: $(tr).find('td:nth-child(7)').text(),
+                        offRank: $(tr).find('td:nth-child(8)').text(),
+                        defDVOA: $(tr).find('td:nth-child(9)').text(),
+                        defRank: $(tr).find('td:nth-child(10)').text(),
+                        stDVOA: $(tr).find('td:nth-child(11)').text(),
+                        stRank: $(tr).find('td:nth-child(12)').text()
+                    }
+                    teams.push(team);
+                    return teams;
+                }
+                i++;
+            })
+            res.send(teams)
+        })
+    });
+
+    //Football Outsiders off. efficiency 
+    app.get('/fo/teamoff/:year', function(req, res){
+        request(`https://www.footballoutsiders.com/stats/teamoff/${req.params.year}`, function(error, response, html){
+            let teams = [];
+            let $ = cheerio.load(html);
+            $('tbody').find('tr').each(function(i = 0, tr){
+                let team = { //17
+                    rank: $(tr).find('td:nth-child(1)').text(),
+                    name: $(tr).find('td:nth-child(2)').text(),
+                    offDVOA: $(tr).find('td:nth-child(3)').text(),
+                    lastYear: $(tr).find('td:nth-child(4)').text(),
+                    weiOff: $(tr).find('td:nth-child(5)').text(),
+                    offRank: $(tr).find('td:nth-child(6)').text(),
+                    passOff: $(tr).find('td:nth-child(7)').text(),
+                    passRank: $(tr).find('td:nth-child(8)').text(),
+                    rushOff: $(tr).find('td:nth-child(9)').text(),
+                    rushRank: $(tr).find('td:nth-child(10)').text(),
+                    nonAdjTot: $(tr).find('td:nth-child(11)').text(),
+                    nonAdjTotPass: $(tr).find('td:nth-child(12)').text(),
+                    nonAdjTotRush: $(tr).find('td:nth-child(13)').text(),
+                    var: $(tr).find('td:nth-child(14)').text(),
+                    varRank: $(tr).find('td:nth-child(15)').text(),
+                    sched: $(tr).find('td:nth-child(16)').text(),
+                    schedRank: $(tr).find('td:nth-child(17)').text(),
+                }
+                if(team.rank !== ""){
+                    teams.push(team);
+                }
+                return teams;
+            })
+            res.send(teams)
+        })
+    });
+
+    //Football Outsiders deff. efficiency 
+    app.get('/fo/teamdef/:year', function(req, res){
+        request(`https://www.footballoutsiders.com/stats/teamdef/${req.params.year}`, function(error, response, html){
+            let teams = [];
+            let $ = cheerio.load(html);
+            $('tbody').find('tr').each(function(i = 0, tr){
+                let team = {
+                    rank: $(tr).find('td:nth-child(1)').text(),
+                    name: $(tr).find('td:nth-child(2)').text(),
+                    defDVOA: $(tr).find('td:nth-child(3)').text(),
+                    lastYear: $(tr).find('td:nth-child(4)').text(),
+                    weiDef: $(tr).find('td:nth-child(5)').text(),
+                    defRank: $(tr).find('td:nth-child(6)').text(),
+                    passDef: $(tr).find('td:nth-child(7)').text(),
+                    passRank: $(tr).find('td:nth-child(8)').text(),
+                    rushDef: $(tr).find('td:nth-child(9)').text(),
+                    rushRank: $(tr).find('td:nth-child(10)').text(),
+                    nonAdjTot: $(tr).find('td:nth-child(11)').text(),
+                    nonAdjTotPass: $(tr).find('td:nth-child(12)').text(),
+                    nonAdjTotRush: $(tr).find('td:nth-child(13)').text(),
+                    var: $(tr).find('td:nth-child(14)').text(),
+                    varRank: $(tr).find('td:nth-child(15)').text(),
+                    sched: $(tr).find('td:nth-child(16)').text(),
+                    schedRank: $(tr).find('td:nth-child(17)').text(),
+                }
+                if(team.rank !== ""){
+                    teams.push(team);
+                }
+                return teams;
+            })
+            res.send(teams)
+        })
+    });
+
+    //Football Outsiders st. efficiency 
+    app.get('/fo/teamst/:year', function(req, res){
+        request(`https://www.footballoutsiders.com/stats/teamst/${req.params.year}`, function(error, response, html){
+            let teams = [];
+            let $ = cheerio.load(html);
+            $('tbody').find('tr').each(function(i = 0, tr){
+                let team = {
+                    rank: $(tr).find('td:nth-child(1)').text(),
+                    name: $(tr).find('td:nth-child(2)').text(),
+                    stDVOA: $(tr).find('td:nth-child(3)').text(),
+                    lastYear: $(tr).find('td:nth-child(4)').text(),
+                    weiST: $(tr).find('td:nth-child(5)').text(),
+                    stRank: $(tr).find('td:nth-child(6)').text(),
+                    fgXp: $(tr).find('td:nth-child(7)').text(),
+                    kick: $(tr).find('td:nth-child(8)').text(),
+                    kickRet: $(tr).find('td:nth-child(9)').text(),
+                    punt: $(tr).find('td:nth-child(10)').text(),
+                    puntRet: $(tr).find('td:nth-child(11)').text(),
+                    hiddenPts: $(tr).find('td:nth-child(12)').text(),
+                    hiddenPtsRk: $(tr).find('td:nth-child(13)').text(),
+                    weatherPts: $(tr).find('td:nth-child(14)').text(),
+                    weatherPtsRk: $(tr).find('td:nth-child(15)').text(),
+                    nonAdjVOA: $(tr).find('td:nth-child(16)').text(),
+                }
+                if(team.rank !== ""){
+                    teams.push(team);
+                }
+                return teams;
+            })
+            res.send(teams)
+        })
+    });
 }
