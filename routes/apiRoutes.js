@@ -350,7 +350,7 @@ module.exports = function(app){
     });
 
     //Football Outsiders team efficiency 
-    app.get('/fo/teameff/:year', function(req, res){
+    app.get('/api/fo/teameff/:year', function(req, res){
         request(`https://www.footballoutsiders.com/stats/teameff/${req.params.year}`, function(error, response, html){
             let teams = [];
             let $ = cheerio.load(html);
@@ -380,7 +380,7 @@ module.exports = function(app){
     });
 
     //Football Outsiders off. efficiency 
-    app.get('/fo/teamoff/:year', function(req, res){
+    app.get('/api/fo/teamoff/:year', function(req, res){
         request(`https://www.footballoutsiders.com/stats/teamoff/${req.params.year}`, function(error, response, html){
             let teams = [];
             let $ = cheerio.load(html);
@@ -414,7 +414,7 @@ module.exports = function(app){
     });
 
     //Football Outsiders deff. efficiency 
-    app.get('/fo/teamdef/:year', function(req, res){
+    app.get('/api/fo/teamdef/:year', function(req, res){
         request(`https://www.footballoutsiders.com/stats/teamdef/${req.params.year}`, function(error, response, html){
             let teams = [];
             let $ = cheerio.load(html);
@@ -448,7 +448,7 @@ module.exports = function(app){
     });
 
     //Football Outsiders st. efficiency 
-    app.get('/fo/teamst/:year', function(req, res){
+    app.get('/api/fo/teamst/:year', function(req, res){
         request(`https://www.footballoutsiders.com/stats/teamst/${req.params.year}`, function(error, response, html){
             let teams = [];
             let $ = cheerio.load(html);

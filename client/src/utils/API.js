@@ -35,5 +35,21 @@ export default {
 
     getFlexStats: function(year, week){
         return axios.get(`/api/flexStats/${year}/${week}`)
+    },
+
+    getFOTeamEff: function(year){
+        return axios.get(`/api/fo/teameff/${year}`)
+    },
+
+    getFOTeamOff: function(year){
+        return axios.get(`/api/fo/teamoff/${year}`)
+    },
+
+    getFOTeamDef: function(year){
+        return axios.get(`/api/fo/teameff/${year}`)
+    },
+
+    getFOTeamST: function(year){
+        return axios.get(`/api/fo/teamst/${year}`)
     }
 }
