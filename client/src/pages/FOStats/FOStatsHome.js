@@ -3,6 +3,7 @@ import API from '../../utils/API.js';
 import '../FOStats/style.css';
 import FOTeamEffCard from '../../components/FOTeamEffCard.js';
 import FOTeamOffCard from '../../components/FOTeamOffCard.js';
+import FOTeamDefCard from '../../components/FOTeamDefCard.js';
 import { Button } from '@material-ui/core';
 
 const date = new Date();
@@ -208,6 +209,63 @@ class FOStatsHome extends Component {
                         </table>
                     </div>
             break;
+            case 'teamdef':
+                content = '';
+                content = 
+                    <div>
+                        <div>
+                            TODO KEY
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Rank</th>
+                                    <th>Team</th>
+                                    <th>Def. DVOA</th>
+                                    <th>Last Year Rank</th>
+                                    <th>Weighted Def.</th>
+                                    <th>Def. Rank</th>
+                                    <th>Pass Def.</th>
+                                    <th>Pass Rank</th>
+                                    <th>Rush Def.</th>
+                                    <th>Rush Rank</th>
+                                    <th>Non Adj. Total</th>
+                                    <th>Non Adj. Tot. Pass</th>
+                                    <th>Non Adj. Tot. Rush</th>
+                                    <th>Var.</th>
+                                    <th>Var. Rank</th>
+                                    <th>Sched.</th>
+                                    <th>Sched. Rank</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {this.state.teamdefStats.map(team => {
+                                    return(
+                                        <FOTeamDefCard 
+                                            rank = {team.rank}
+                                            name = {team.name}
+                                            defDVOA = {team.defDVOA}
+                                            lastYear = {team.lastYear}
+                                            weiDef = {team.weiDef}
+                                            defRank = {team.defRank}
+                                            passDef = {team.passDef}
+                                            passRank = {team.passRank}
+                                            rushDef = {team.rushDef}
+                                            rushRank = {team.rushRank}
+                                            nonAdjTot = {team.nonAdjTot}
+                                            nonAdjTotPass= {team.nonAdjTotPass}
+                                            nonAdjTotRush= {team.nonAdjTotRush}
+                                            variance= {team.variance}
+                                            varRank= {team.varRank}
+                                            sched= {team.sched}
+                                            schedRank= {team.schedRank}
+                                        />
+                                    )
+                                })}
+                            </tbody>
+                        </table>
+                    </div>
+            break;
             default:
                 content = ''
                 content = <div>Please choose which year and which Football Outsiders table you would like to view.</div>
@@ -232,6 +290,7 @@ class FOStatsHome extends Component {
                     <div className="statsNavBar">
                         <button className="tabButtons" value="teameff" onClick={this.handleClick} name="tabValue">Team Efficiency</button>
                         <button className="tabButtons" value="teamoff" onClick={this.handleClick} name="tabValue">Team Offense</button>
+                        <button className="tabButtons" value="teamdef" onClick={this.handleClick} name="tabValue">Team Deffense</button>
                     </div>
                 </div>
                     <Button onClick={this.submitYear}>Submit Year</Button>

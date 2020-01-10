@@ -46,7 +46,7 @@ export default {
     },
 
     getFOTeamDef: function(year){
-        return axios.get(`/api/fo/teameff/${year}`)
+        return axios.get(`/api/fo/teamdef/${year}`)
     },
 
     getFOTeamST: function(year){
