@@ -6,6 +6,7 @@
     flex-wrap: wrap;
     text-align: center;
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    align-content: center;
 }
 
 .tableRows:nth-child(even) {

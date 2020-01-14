@@ -5,7 +5,6 @@ import { Button } from '@material-ui/core';
 import QbRbWrTECard from '../../components/QbRbWrTeCard.js';
 import DSTCard from '../../components/DSTCard.js';
 import KCard from '../../components/KCard.js';
-import Footer from '../../components/Footer.js';
 
 const date = new Date();
 
@@ -525,7 +524,6 @@ class Stats extends Component {
                         {content}
                     </div>
                 </div>
-                <Footer />
             </div>
         );
     }

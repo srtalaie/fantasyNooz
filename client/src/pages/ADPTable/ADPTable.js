@@ -3,7 +3,6 @@ import API from '../../utils/API.js';
 import FantasyProsCard from '../../components/FantasyProsCard.js';
 import '../ADPTable/style.css';
 import { Button } from '@material-ui/core';
-import Footer from '../../components/Footer.js';
 
 class Dashboard extends Component {
 
@@ -113,7 +112,6 @@ class Dashboard extends Component {
                     )}
                     
                 </div>
-                <Footer />
             </div>
         );
     }

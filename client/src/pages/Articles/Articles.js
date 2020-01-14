@@ -3,7 +3,6 @@ import API from '../../utils/API.js';
 import ArticlesCard from '../../components/ArticlesCard.js';
 import '../Articles/style.css';
 import { Button } from '@material-ui/core';
-import Footer from '../../components/Footer.js';
 
 class Articles extends Component {
 
@@ -56,7 +55,6 @@ class Articles extends Component {
                         )}
                     </ul>
                 </div>
-                <Footer />
             </div>
         );
     }

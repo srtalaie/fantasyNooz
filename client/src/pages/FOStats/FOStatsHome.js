@@ -328,32 +328,35 @@ class FOStatsHome extends Component {
         }
         return(
             <div>
-                <div>
-                    TODO
-                </div>
-                <div className="yearWeekContainer">
-                    <select onChange={this.handleChange} name='year'>
-                        <option value={this.state.year}>{this.state.year}</option>
-                        <option value={this.state.years[0]}>{this.state.years[0]}</option>
-                        <option value={this.state.years[1]}>{this.state.years[1]}</option>
-                        <option value={this.state.years[2]}>{this.state.years[2]}</option>
-                        <option value={this.state.years[3]}>{this.state.years[3]}</option>
-                        <option value={this.state.years[4]}>{this.state.years[4]}</option>
-                        <option value={this.state.years[5]}>{this.state.years[5]}</option>
-                    </select>
-                </div>
-                <div>
-                    <div className="statsNavBar">
-                        <button className="tabButtons" value="teameff" onClick={this.handleClick} name="tabValue">Team Efficiency</button>
-                        <button className="tabButtons" value="teamoff" onClick={this.handleClick} name="tabValue">Team Offense</button>
-                        <button className="tabButtons" value="teamdef" onClick={this.handleClick} name="tabValue">Team Deffense</button>
-                        <button className="tabButtons" value="teamst" onClick={this.handleClick} name="tabValue">Team Special Teams</button>
+                <div className="container">
+                    <div>
+                        TODO
+                    </div>
+                    <div className="yearWeekContainer">
+                        <select onChange={this.handleChange} name='year'>
+                            <option value={this.state.year}>{this.state.year}</option>
+                            <option value={this.state.years[0]}>{this.state.years[0]}</option>
+                            <option value={this.state.years[1]}>{this.state.years[1]}</option>
+                            <option value={this.state.years[2]}>{this.state.years[2]}</option>
+                            <option value={this.state.years[3]}>{this.state.years[3]}</option>
+                            <option value={this.state.years[4]}>{this.state.years[4]}</option>
+                            <option value={this.state.years[5]}>{this.state.years[5]}</option>
+                        </select>
+                    </div>
+                    <div>
+                        <div className="statsNavBar">
+                            <button className="tabButtons" value="teameff" onClick={this.handleClick} name="tabValue">Team Efficiency</button>
+                            <button className="tabButtons" value="teamoff" onClick={this.handleClick} name="tabValue">Team Offense</button>
+                            <button className="tabButtons" value="teamdef" onClick={this.handleClick} name="tabValue">Team Deffense</button>
+                            <button className="tabButtons" value="teamst" onClick={this.handleClick} name="tabValue">Team Special Teams</button>
+                        </div>
+                    </div>
+                        <Button onClick={this.submitYear}>Submit</Button>
+                    <div>
+                        {content}
                     </div>
                 </div>
-                    <Button onClick={this.submitYear}>Submit</Button>
-                <div>
-                    {content}
-                </div>
+
             </div>
         )
     }
