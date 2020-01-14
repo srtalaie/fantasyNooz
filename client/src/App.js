@@ -11,7 +11,7 @@ import './style.css';
 
 function App() {
   return (
-    <div>
+    <div className="mainContainer">
       <Router>
             <ul className="navbar">
               <li>
@@ -42,9 +42,7 @@ function App() {
             <Route pth="/fostats/" component={FOStatsHome} />
           </Switch>
       </Router>
-      <div className="footerContainer">
-        <Footer />
-      </div>  
+      <Footer />
     </div>
   );
 }

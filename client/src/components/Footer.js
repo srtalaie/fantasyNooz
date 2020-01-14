@@ -1,15 +1,14 @@
 import React from "react";
 
 const footerStyle = {
-    position: 'absolute',
-    bottom: 'auto',
-    height: '2.5em',
-    width: '100%',
     borderTop: '3px solid grey',
     backgroundColor: 'black',
     color: 'whitesmoke',
-    marginTop: '5vw',
-    textAlign: 'center'
+    textAlign: 'center',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: '3vh'
   }
 
 const date = new Date();
