@@ -8,7 +8,9 @@ const footerStyle = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: '3vh'
+    marginTop: '60vh',
+    position: 'relative',
+    bottom: '0'
   }
 
 const date = new Date();
