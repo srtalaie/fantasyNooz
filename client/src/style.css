@@ -20,6 +20,7 @@ html, body {
     min-height: 3em;
     align-items: center;
     border-bottom: 3px solid grey;
+    margin-top: auto;
 }
 
 .link {
