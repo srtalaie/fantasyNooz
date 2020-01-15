@@ -334,7 +334,8 @@ class FOStatsHome extends Component {
                         <p>For offense a higher percentage is good. For defence the inverse is true. And for Special Teams the yardage and how likely a team can score from field position.</p>
                     </div>
                     <div className="yearWeekContainer">
-                        <select onChange={this.handleChange} name='year'>
+
+                        <p>Year: <select onChange={this.handleChange} name='year'>
                             <option value={this.state.year}>{this.state.year}</option>
                             <option value={this.state.years[0]}>{this.state.years[0]}</option>
                             <option value={this.state.years[1]}>{this.state.years[1]}</option>
@@ -343,6 +344,7 @@ class FOStatsHome extends Component {
                             <option value={this.state.years[4]}>{this.state.years[4]}</option>
                             <option value={this.state.years[5]}>{this.state.years[5]}</option>
                         </select>
+                        </p>
                     </div>
                     <div>
                         <div className="statsNavBar">
