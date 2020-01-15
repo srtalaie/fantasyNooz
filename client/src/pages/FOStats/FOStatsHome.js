@@ -358,6 +358,7 @@ class FOStatsHome extends Component {
             <div>
                 <div className="container">
                     <div>
+                        <p>ALL OF THE STATISTICS ARE FROM <a href="https://www.footballoutsiders.com/">FOOBALL OUTSIDERS</a></p>
                         <p>DVOA(Defense-adjusted Value Over Average) is a metric used by <a href="https://www.footballoutsiders.com/info/methods">Football Outsiders</a> that rates a every single play for a team against the league average based on the situation. By doing so each situation is not treated the same. Redzone plays are worth more than plays in your own territory. Gaining 5 yards to get a 1st down on 3rd is worth more than gaining that same amount of yards on a 1st down. They also adjust these metrics against how difficult the opponent is. DVOA is measured in % above or below league avaerage.</p>
                         <p>For offense a higher percentage is good. For defence the inverse is true. And for Special Teams the yardage and how likely a team can score from field position.</p>
                     </div>

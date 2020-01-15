@@ -27,7 +27,7 @@ function App() {
                 <Link className='link' to="/stats/">Stats</Link>
               </li>
               <li>
-                <Link className='link' to="/fostats/">Football Outsiders Team Stats</Link>
+                <Link className='link' to="/fostats/">FO Team Stats</Link>
               </li>
               <li>
                 <Link className='link' to="/">Home</Link>
