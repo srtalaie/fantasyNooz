@@ -111,7 +111,8 @@ class FOStatsHome extends Component {
                 content = 
                     <div>
                         <div>
-                                TODO KEY
+                            <p>This shows the basic DVOA rankings for Offense, Deffense, Special Teams. To see further details on each unit select the specific unit you want to view.</p>
+                            <p>DVOA is adjusted based on strength of opponents, fumbles lost and recovered are equal and for special teams weather, stadium and location.Football Outsider's Non-Adjusted Total Value does not include the previouos adjustments</p>
                         </div>
                         <table>
                             <thead>
@@ -158,7 +159,8 @@ class FOStatsHome extends Component {
                 content = 
                     <div>
                         <div>
-                            TODO KEY
+                            <p>The weighted offense reflects Fofotball Outsider's metric of prioritizing wins later in the season and wins in the beginning of the season being less important. This shows how well the team is playing towards the end of the season.</p>
+                            <p>Offensive DVOA also takes into account negative yards that are not due to a rushing/passing play (i.e. penalties).</p>
                         </div>
                         <table>
                             <thead>
@@ -215,7 +217,8 @@ class FOStatsHome extends Component {
                 content = 
                     <div>
                         <div>
-                            TODO KEY
+                            <p>The weighted offense reflects Fofotball Outsider's metric of prioritizing wins later in the season and wins in the beginning of the season being less important. This shows how well the team is playing towards the end of the season.</p>
+                            <p>Remember when considering defenses negative DVOA is better.</p>
                         </div>
                         <table>
                             <thead>
@@ -272,7 +275,32 @@ class FOStatsHome extends Component {
                 content = 
                     <div>
                         <div>
-                            TODO KEY
+                            <p>DVOA for special teams is caluclated by taking into account the points the special teams receives from field goals/extra points, kickoffs, kick returns, punts, punt returns.</p>
+                            <p>Points are calculated by:
+                                <ul>
+                                    <li>Field Goals compares each field goal to league average of field goals from the same distance.</li>
+                                    <li>Yards For kicking and punting and kick returning and punt returning are based on field position as a result of the punt and kick and the average likliehood an offense will score from that position. They are adjusted for weather, stadium and location.
+                                        <ul>
+                                            <li>Kicking and punting are based on net yardage.</li>
+                                            <li>Kick returning and punt returning are based on return yardage.</li>
+                                            <li>2-pt conversions and onside kicks are omitted.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </p>
+                            <p>According to Football Outsider's: 
+                                <ul>
+                                    <li>
+                                        Hiddent points represents the advantage teams have received from elements of special teams generally out of their control: opposing field goals, kickoff distance, and punt distance. It is listed as points worth of estimated field position, and is ranked from the team with the biggest advantage to the team with the biggest disadvantage
+                                    </li>
+                                    <li>
+                                        Weather represents the estimated effect of weather, altitude, and domes on each team's special teams performance. It is listed as points worth of estimated field position, and is ranked from the team with the biggest advantage to the team with the biggest disadvantage.
+                                    </li>
+                                    <li>
+                                        Non-Adjusted DVOA represents the DVOA with the above weather adjustments removed.
+                                    </li>
+                                </ul>
+                            </p>
                         </div>
                         <table>
                             <thead>
