@@ -51,5 +51,9 @@ export default {
 
     getFOTeamST: function(year){
         return axios.get(`/api/fo/teamst/${year}`)
+    },
+
+    getFOOline: function(year){
+        return axios.get(`/api/fo/oline/${year}`)
     }
 }

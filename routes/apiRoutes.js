@@ -479,4 +479,37 @@ module.exports = function(app){
             res.send(teams)
         })
     });
+
+    //Football Outsiders o-line 
+    app.get('/api/fo/oline/:year', function(req, res){
+        request(`https://www.footballoutsiders.com/stats/ol/${req.params.year}`, function(error, response, html){
+            let teams = [];
+            let $ = cheerio.load(html);
+            $('tbody').find('tr').each(function(i = 0, tr){
+                let team = {
+                    rank: $(tr).find('td:nth-child(1)').text(),
+                    name: $(tr).find('td:nth-child(2)').text(),
+                    adjLineYds: $(tr).find('td:nth-child(3)').text(),
+                    rbYds: $(tr).find('td:nth-child(4)').text(),
+                    pwrSucc: $(tr).find('td:nth-child(5)').text(),
+                    pwrRk: $(tr).find('td:nth-child(6)').text(),
+                    stufd: $(tr).find('td:nth-child(7)').text(),
+                    stufdRk: $(tr).find('td:nth-child(8)').text(),
+                    scndLvlYds: $(tr).find('td:nth-child(9)').text(),
+                    scndLvlRk: $(tr).find('td:nth-child(10)').text(),
+                    openFldYds: $(tr).find('td:nth-child(11)').text(),
+                    openFldRk: $(tr).find('td:nth-child(12)').text(),
+                    passTeamName: $(tr).find('td:nth-child(13)').text(),
+                    passPrtctRk: $(tr).find('td:nth-child(14)').text(),
+                    sacks: $(tr).find('td:nth-child(15)').text(),
+                    adjSackRt: $(tr).find('td:nth-child(16)').text()
+                }
+                if(team.rank !== ""){
+                    teams.push(team);
+                }
+                return teams;
+            })
+            res.send(teams)
+        })
+    });
 }
