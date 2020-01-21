@@ -1,6 +1,6 @@
 import React from "react";
 
-const FOOLineCard = ({ rank, name, adjLineYds, rbYds, pwrSucc, pwrRk, stufd, stufdRk, scndLvlYds, scndLvlRk, openFldYds, openFldYdRk, passTeamName, passPrtctRk, sacks, adjSackRt}) => (
+const FOOLineCard = ({ rank, name, adjLineYds, rbYds, pwrSucc, pwrRk, stufd, stufdRk, scndLvlYds, scndLvlRk, openFldYds, openFldRk, passTeamName, passPrtctRk, sacks, adjSackRt}) => (
     <tr>
         <td>{rank}</td>
         <td>{name}</td>
@@ -13,7 +13,7 @@ const FOOLineCard = ({ rank, name, adjLineYds, rbYds, pwrSucc, pwrRk, stufd, stu
         <td>{scndLvlYds}</td>
         <td>{scndLvlRk}</td>
         <td>{openFldYds}</td>
-        <td>{openFldYdRk}</td>
+        <td>{openFldRk}</td>
         <td>{passTeamName}</td>
         <td>{passPrtctRk}</td>
         <td>{sacks}</td>

@@ -406,7 +406,7 @@ class FOStatsHome extends Component {
                                             scndLvlYds = {team.scndLvlYds}
                                             scndLvlRk = {team.scndLvlRk}
                                             openFldYds = {team.openFldYds}
-                                            openFldYdRk= {team.openFldYdRk}
+                                            openFldRk= {team.openFldRk}
                                             passTeamName= {team.passTeamName}
                                             passPrtctRk={team.passPrtctRk}
                                             sacks= {team.sacks}

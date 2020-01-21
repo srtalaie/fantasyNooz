@@ -481,7 +481,7 @@ module.exports = function(app){
     });
 
     //Football Outsiders o-line 
-    app.get('/fo/oline/:year', function(req, res){
+    app.get('/api/fo/oline/:year', function(req, res){
         request(`https://www.footballoutsiders.com/stats/ol/${req.params.year}`, function(error, response, html){
             let teams = [];
             let $ = cheerio.load(html);
