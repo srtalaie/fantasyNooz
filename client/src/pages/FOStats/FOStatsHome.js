@@ -5,6 +5,7 @@ import FOTeamEffCard from '../../components/FOTeamEffCard.js';
 import FOTeamOffCard from '../../components/FOTeamOffCard.js';
 import FOTeamDefCard from '../../components/FOTeamDefCard.js';
 import FOTeamSTCard from '../../components/FOTeamSTCard.js';
+import FOOLineCard from '../../components/FOOLineCard.js';
 import { Button } from '@material-ui/core';
 
 const date = new Date();
@@ -18,6 +19,7 @@ class FOStatsHome extends Component {
         teamoffStats: [],
         teamdefStats: [],
         teamstStats: [],
+        olineStats: [],
         years: []
     }
 
@@ -41,7 +43,9 @@ class FOStatsHome extends Component {
             return that.loadTeamDefData();
         }).then(function(){
             return that.loadTeamStData();
-        });
+        }).then(function(){
+            return that.loadOlineData();
+        })
     }
 
     populateYears = () => {
@@ -99,6 +103,14 @@ class FOStatsHome extends Component {
         API.getFOTeamST(this.state.year)
         .then(
             res => this.setState({ teamstStats: res.data })
+        )
+        .catch(err => console.log(err))
+    }
+
+    loadOlineData = () => {
+        API.getFOOline(this.state.year)
+        .then(
+            res => this.setState({ olineStats: res.data })
         )
         .catch(err => console.log(err))
     }
@@ -350,6 +362,62 @@ class FOStatsHome extends Component {
                         </table>
                     </div>
             break;
+            case 'oline':
+                content = '';
+                content = 
+                    <div>
+                         <table>
+                            <thead>
+                                <tr>
+                                    <th colspan="12">Run Blocking</th>
+                                    <th colspan="4">Pass Blocking</th>
+                                </tr>
+                                <tr>
+                                    <th>Rank</th>
+                                    <th>Team</th>
+                                    <th>Adj. Line Yards</th>
+                                    <th>RB Yards</th>
+                                    <th>Power Success</th>
+                                    <th>Power Rank</th>
+                                    <th>Stuffed</th>
+                                    <th>Stuffed Rank</th>
+                                    <th>2nd Lvl. Yards</th>
+                                    <th>2nd Lvl. Rank</th>
+                                    <th>Open Field Yards</th>
+                                    <th>Open Field Rank</th>
+                                    <th>Team</th>
+                                    <th>Rank</th>
+                                    <th>Sacks</th>
+                                    <th>Adj. Sack Rate</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {this.state.olineStats.map(team => {
+                                    return(
+                                        <FOOLineCard 
+                                            rank = {team.rank}
+                                            name = {team.name}
+                                            adjLineYds = {team.adjLineYds}
+                                            rbYds = {team.rbYds}
+                                            pwrSucc = {team.pwrSucc}
+                                            pwrRk = {team.pwrRk}
+                                            stufd = {team.stufd}
+                                            stufdRk = {team.stufdRk}
+                                            scndLvlYds = {team.scndLvlYds}
+                                            scndLvlRk = {team.scndLvlRk}
+                                            openFldYds = {team.openFldYds}
+                                            openFldYdRk= {team.openFldYdRk}
+                                            passTeamName= {team.passTeamName}
+                                            passPrtctRk={team.passPrtctRk}
+                                            sacks= {team.sacks}
+                                            adjSackRt= {team.adjSackRt}
+                                        />
+                                    )
+                                })}
+                            </tbody>
+                        </table>
+                    </div>
+                break;
             default:
                 content = ''
                 content = <div>Please choose which year and which Football Outsiders table you would like to view.</div>
@@ -381,6 +449,7 @@ class FOStatsHome extends Component {
                             <button className="tabButtons" value="teamoff" onClick={this.handleClick} name="tabValue">Team Offense</button>
                             <button className="tabButtons" value="teamdef" onClick={this.handleClick} name="tabValue">Team Deffense</button>
                             <button className="tabButtons" value="teamst" onClick={this.handleClick} name="tabValue">Team Special Teams</button>
+                            <button className="tabButtons" value="oline" onClick={this.handleClick} name="tabValue">O-Lines</button>
                         </div>
                     </div>
                         <Button onClick={this.submitYear}>Submit</Button>
