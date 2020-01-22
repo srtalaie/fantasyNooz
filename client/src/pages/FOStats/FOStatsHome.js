@@ -366,6 +366,24 @@ class FOStatsHome extends Component {
                 content = '';
                 content = 
                     <div>
+                        <div>
+                            <p>Football Outsiders ranks their adjusted line yards based on all RB carries and how much of those yards are the responsibility of the line: </p>
+                                <ul>
+                                    <li>Losses = 120% Value</li>
+                                    <li>0 - 4 = 100% Value</li>
+                                    <li>5 - 10 = 50% Value</li>
+                                    <li>11+ = 0% Value</li>
+                                </ul>
+                            <p>The numbers are then adjusted based on the down, opponent, situation, etc.</p>
+                            <p>RB Yards refers to YPC for the team's RBs as a whole</p>
+                            <p>Power Success refers to runs on 3rd or 4th down with 2 yards or less that achieved a first down or touchdown. This includes QBs as well.</p>
+                            <p>Stuffed refers to % of runs where the RB is tackled on or behind the line of scrimmage. #1 is less often while #32 is often.</p>
+                            <p>Second Level Yards are the yards an RB gains that are 5-10 yards past the line of scrimmage divided by the total carries</p>
+                            <p>Open field yards are 10+ yards past the line of scrimmage divided by the total carries.</p>
+                            <p>The stats at the bottom represent the NFL average.</p>
+                            <p>According to Football Outsiders a team with a high ranking in Adjusted Line Yards but low Open Field Yards relies heavily on its o-line. While the inverse means the team relies heavily on its RBs.</p>
+                            <p>For Pass Blocking the Adjusted Sack Rate is the amount of sacks and intentional groundings divided by attempt and adjusted for distance, opponent and down<./p>
+                        </div>
                          <table>
                             <thead>
                                 <tr>
