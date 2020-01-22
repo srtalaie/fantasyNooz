@@ -32,7 +32,7 @@ class Articles extends Component {
             <div>
                 <div className="container">
                     <h1>Posts From r/fantasyfootball</h1>
-                    <div className="articlesDescription">
+                    <div>
                         <p>Data is scraped from <a href="https://old.reddit.com/r/fantasyfootball">r/fantasyfootball</a> which is a great aggregrate of the most current fantasy football news. Will load 25 articles from the subreddit pulling from the current top posts. You can click on the links if there is an article or you can go to the reddit comments which provide some added insights...sometimes.</p>
                     </div>
                     <Button onClick={this.refreshArticles} color="primary">Refresh Articles</Button>
