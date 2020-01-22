@@ -382,7 +382,7 @@ class FOStatsHome extends Component {
                             <p>Open field yards are 10+ yards past the line of scrimmage divided by the total carries.</p>
                             <p>The stats at the bottom represent the NFL average.</p>
                             <p>According to Football Outsiders a team with a high ranking in Adjusted Line Yards but low Open Field Yards relies heavily on its o-line. While the inverse means the team relies heavily on its RBs.</p>
-                            <p>For Pass Blocking the Adjusted Sack Rate is the amount of sacks and intentional groundings divided by attempt and adjusted for distance, opponent and down<./p>
+                            <p>For Pass Blocking the Adjusted Sack Rate is the amount of sacks and intentional groundings divided by attempt and adjusted for distance, opponent and down</p>
                         </div>
                          <table>
                             <thead>
