@@ -5,6 +5,12 @@ import { Button } from '@material-ui/core';
 import QbRbWrTECard from '../../components/QbRbWrTeCard.js';
 import DSTCard from '../../components/DSTCard.js';
 import KCard from '../../components/KCard.js';
+import Table from '@material-ui/core/Table';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import TableBody from '@material-ui/core/TableBody';
+import Container from '@material-ui/core/Container';
+import TableCell from '@material-ui/core/TableCell';
 
 const date = new Date();
 
@@ -59,7 +65,7 @@ class Stats extends Component {
         let startDate = currDate - 6;
         let yearsArr = [];
         while(currDate > startDate){
-            yearsArr.push(currDate.toString());
+            yearsArr.push(currDate.toSTableRowing());
             currDate--;
         }
         this.setState({ years: yearsArr })
@@ -90,7 +96,7 @@ class Stats extends Component {
     }
 
     loadRBData = () => {
-        API.getRBStats(this.state.year, this.state.week)
+        API.geTableRowBStats(this.state.year, this.state.week)
         .then(
             res => this.setState({ rbStats: res.data })
         )
@@ -144,29 +150,29 @@ class Stats extends Component {
             case 'qb':
                 content = ''
                 content = 
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Player Name</th>
-                                <th>Total Fan Pts.</th>
-                                <th>Pass Att.</th>
-                                <th>Cmp.</th>
-                                <th>Pass YDs</th>
-                                <th>Pass TDs</th>
-                                <th>Int.</th>
-                                <th>Pass 2 Pt.</th>
-                                <th>Rush Att.</th>
-                                <th>Rush YDs</th>
-                                <th>Rush TDs</th>
-                                <th>Rush 2 Pt.</th>
-                                <th>Rec.</th>
-                                <th>Rec. YDs</th>
-                                <th>Rec. TDs</th>
-                                <th>Rec 2 Pt.</th>
-                                <th>Fum.</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                    <Table>
+                        <TableHead>
+                            <TableRow>
+                                <TableCell>Player Name</TableCell>
+                                <TableCell>Total Fan Pts.</TableCell>
+                                <TableCell>Pass Att.</TableCell>
+                                <TableCell>Cmp.</TableCell>
+                                <TableCell>Pass YDs</TableCell>
+                                <TableCell>Pass TDs</TableCell>
+                                <TableCell>Int.</TableCell>
+                                <TableCell>Pass 2 Pt.</TableCell>
+                                <TableCell>Rush Att.</TableCell>
+                                <TableCell>Rush YDs</TableCell>
+                                <TableCell>Rush TDs</TableCell>
+                                <TableCell>Rush 2 Pt.</TableCell>
+                                <TableCell>Rec.</TableCell>
+                                <TableCell>Rec. YDs</TableCell>
+                                <TableCell>Rec. TDs</TableCell>
+                                <TableCell>Rec 2 Pt.</TableCell>
+                                <TableCell>Fum.</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
                             {this.state.qbStats.map(qb => {
                                 return (<QbRbWrTECard 
                                     name = {qb.name}
@@ -189,35 +195,35 @@ class Stats extends Component {
                                     fum = {qb.fl}
                                 />)
                             })}
-                        </tbody>
-                    </table>
+                        </TableBody>
+                    </Table>
                 break;
             case 'rb':
                 content = ''
                 content = 
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Player Name</th>
-                                <th>Total Fan Pts.</th>
-                                <th>Pass Att.</th>
-                                <th>Cmp.</th>
-                                <th>Pass YDs</th>
-                                <th>Pass TDs</th>
-                                <th>Int.</th>
-                                <th>Pass 2 Pt.</th>
-                                <th>Rush Att.</th>
-                                <th>Rush YDs</th>
-                                <th>Rush TDs</th>
-                                <th>Rush 2 Pt.</th>
-                                <th>Rec.</th>
-                                <th>Rec. YDs</th>
-                                <th>Rec. TDs</th>
-                                <th>Rec 2 Pt.</th>
-                                <th>Fum.</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                    <Table>
+                        <TableHead>
+                            <TableRow>
+                                <TableCell>Player Name</TableCell>
+                                <TableCell>Total Fan Pts.</TableCell>
+                                <TableCell>Pass Att.</TableCell>
+                                <TableCell>Cmp.</TableCell>
+                                <TableCell>Pass YDs</TableCell>
+                                <TableCell>Pass TDs</TableCell>
+                                <TableCell>Int.</TableCell>
+                                <TableCell>Pass 2 Pt.</TableCell>
+                                <TableCell>Rush Att.</TableCell>
+                                <TableCell>Rush YDs</TableCell>
+                                <TableCell>Rush TDs</TableCell>
+                                <TableCell>Rush 2 Pt.</TableCell>
+                                <TableCell>Rec.</TableCell>
+                                <TableCell>Rec. YDs</TableCell>
+                                <TableCell>Rec. TDs</TableCell>
+                                <TableCell>Rec 2 Pt.</TableCell>
+                                <TableCell>Fum.</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
                             {this.state.rbStats.map(rb => {
                                 return (<QbRbWrTECard 
                                     name = {rb.name}
@@ -240,35 +246,35 @@ class Stats extends Component {
                                     fum = {rb.fl}
                                 />)
                             })}
-                        </tbody>
-                    </table>
+                        </TableBody>
+                    </Table>
                 break;
             case 'wr':
                 content = ''
                 content = 
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Player Name</th>
-                                <th>Total Fan Pts.</th>
-                                <th>Pass Att.</th>
-                                <th>Cmp.</th>
-                                <th>Pass YDs</th>
-                                <th>Pass TDs</th>
-                                <th>Int.</th>
-                                <th>Pass 2 Pt.</th>
-                                <th>Rush Att.</th>
-                                <th>Rush YDs</th>
-                                <th>Rush TDs</th>
-                                <th>Rush 2 Pt.</th>
-                                <th>Rec.</th>
-                                <th>Rec. YDs</th>
-                                <th>Rec. TDs</th>
-                                <th>Rec 2 Pt.</th>
-                                <th>Fum.</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                    <Table>
+                        <TableHead>
+                            <TableRow>
+                                <TableCell>Player Name</TableCell>
+                                <TableCell>Total Fan Pts.</TableCell>
+                                <TableCell>Pass Att.</TableCell>
+                                <TableCell>Cmp.</TableCell>
+                                <TableCell>Pass YDs</TableCell>
+                                <TableCell>Pass TDs</TableCell>
+                                <TableCell>Int.</TableCell>
+                                <TableCell>Pass 2 Pt.</TableCell>
+                                <TableCell>Rush Att.</TableCell>
+                                <TableCell>Rush YDs</TableCell>
+                                <TableCell>Rush TDs</TableCell>
+                                <TableCell>Rush 2 Pt.</TableCell>
+                                <TableCell>Rec.</TableCell>
+                                <TableCell>Rec. YDs</TableCell>
+                                <TableCell>Rec. TDs</TableCell>
+                                <TableCell>Rec 2 Pt.</TableCell>
+                                <TableCell>Fum.</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
                             {this.state.wrStats.map(wr => {
                                 return (<QbRbWrTECard 
                                     name = {wr.name}
@@ -291,35 +297,35 @@ class Stats extends Component {
                                     fum = {wr.fl}
                                 />)
                             })}
-                        </tbody>
-                    </table>
+                        </TableBody>
+                    </Table>
                 break;
             case 'te':
                 content = ''
                 content = 
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Player Name</th>
-                                <th>Total Fan Pts.</th>
-                                <th>Pass Att.</th>
-                                <th>Cmp.</th>
-                                <th>Pass YDs</th>
-                                <th>Pass TDs</th>
-                                <th>Int.</th>
-                                <th>Pass 2 Pt.</th>
-                                <th>Rush Att.</th>
-                                <th>Rush YDs</th>
-                                <th>Rush TDs</th>
-                                <th>Rush 2 Pt.</th>
-                                <th>Rec.</th>
-                                <th>Rec. YDs</th>
-                                <th>Rec. TDs</th>
-                                <th>Rec 2 Pt.</th>
-                                <th>Fum.</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                    <Table>
+                        <TableHead>
+                            <TableRow>
+                                <TableCell>Player Name</TableCell>
+                                <TableCell>Total Fan Pts.</TableCell>
+                                <TableCell>Pass Att.</TableCell>
+                                <TableCell>Cmp.</TableCell>
+                                <TableCell>Pass YDs</TableCell>
+                                <TableCell>Pass TDs</TableCell>
+                                <TableCell>Int.</TableCell>
+                                <TableCell>Pass 2 Pt.</TableCell>
+                                <TableCell>Rush Att.</TableCell>
+                                <TableCell>Rush YDs</TableCell>
+                                <TableCell>Rush TDs</TableCell>
+                                <TableCell>Rush 2 Pt.</TableCell>
+                                <TableCell>Rec.</TableCell>
+                                <TableCell>Rec. YDs</TableCell>
+                                <TableCell>Rec. TDs</TableCell>
+                                <TableCell>Rec 2 Pt.</TableCell>
+                                <TableCell>Fum.</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
                             {this.state.teStats.map(te => {
                                 return (<QbRbWrTECard 
                                     name = {te.name}
@@ -342,35 +348,35 @@ class Stats extends Component {
                                     fum = {te.fl}
                                 />)
                             })}
-                        </tbody>
-                    </table>
+                        </TableBody>
+                    </Table>
                 break;
             case 'flex':
                 content = ''
                 content = 
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Player Name</th>
-                                <th>Total Fan Pts.</th>
-                                <th>Pass Att.</th>
-                                <th>Cmp.</th>
-                                <th>Pass YDs</th>
-                                <th>Pass TDs</th>
-                                <th>Int.</th>
-                                <th>Pass 2 Pt.</th>
-                                <th>Rush Att.</th>
-                                <th>Rush YDs</th>
-                                <th>Rush TDs</th>
-                                <th>Rush 2 Pt.</th>
-                                <th>Rec.</th>
-                                <th>Rec. YDs</th>
-                                <th>Rec. TDs</th>
-                                <th>Rec 2 Pt.</th>
-                                <th>Fum.</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                    <Table>
+                        <TableHead>
+                            <TableRow>
+                                <TableCell>Player Name</TableCell>
+                                <TableCell>Total Fan Pts.</TableCell>
+                                <TableCell>Pass Att.</TableCell>
+                                <TableCell>Cmp.</TableCell>
+                                <TableCell>Pass YDs</TableCell>
+                                <TableCell>Pass TDs</TableCell>
+                                <TableCell>Int.</TableCell>
+                                <TableCell>Pass 2 Pt.</TableCell>
+                                <TableCell>Rush Att.</TableCell>
+                                <TableCell>Rush YDs</TableCell>
+                                <TableCell>Rush TDs</TableCell>
+                                <TableCell>Rush 2 Pt.</TableCell>
+                                <TableCell>Rec.</TableCell>
+                                <TableCell>Rec. YDs</TableCell>
+                                <TableCell>Rec. TDs</TableCell>
+                                <TableCell>Rec 2 Pt.</TableCell>
+                                <TableCell>Fum.</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
                             {this.state.flexStats.map(flex => {
                                 return (<QbRbWrTECard 
                                     name = {flex.name}
@@ -393,30 +399,30 @@ class Stats extends Component {
                                     fum = {flex.fl}
                                 />)
                             })}
-                        </tbody>
-                    </table>
+                        </TableBody>
+                    </Table>
                 break;
             case 'dst':
                 content = ''
                 content = 
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Team Name</th>
-                                <th>Total Fan Pts.</th>
-                                <th>Sack</th>
-                                <th>Int.</th>
-                                <th>Safety</th>
-                                <th>FR.</th>
-                                <th>Blk.</th>
-                                <th>TD.</th>
-                                <th>Pts Allowed</th>
-                                <th>Pass Y/G</th>
-                                <th>Rush Y/G</th>
-                                <th>Total Y/G</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                    <Table>
+                        <TableHead>
+                            <TableRow>
+                                <TableCell>Team Name</TableCell>
+                                <TableCell>Total Fan Pts.</TableCell>
+                                <TableCell>Sack</TableCell>
+                                <TableCell>Int.</TableCell>
+                                <TableCell>Safety</TableCell>
+                                <TableCell>FR.</TableCell>
+                                <TableCell>Blk.</TableCell>
+                                <TableCell>TD.</TableCell>
+                                <TableCell>Pts Allowed</TableCell>
+                                <TableCell>Pass Y/G</TableCell>
+                                <TableCell>Rush Y/G</TableCell>
+                                <TableCell>Total Y/G</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
                             {this.state.dstStats.map(dst => {
                                 return (<DSTCard 
                                     name = {dst.name}
@@ -433,25 +439,25 @@ class Stats extends Component {
                                     totalYG = {dst.totalYG }
                                 />)
                             })}
-                        </tbody>
-                    </table>
+                        </TableBody>
+                    </Table>
                 break;
             case 'k':
                 content = ''
                 content = 
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Total Fan Pts.</th>
-                                <th>XPA</th>
-                                <th>XPM</th>
-                                <th>FGA</th>
-                                <th>FGM.</th>
-                                <th>50+ FGs</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                    <Table>
+                        <TableHead>
+                            <TableRow>
+                                <TableCell>Name</TableCell>
+                                <TableCell>Total Fan Pts.</TableCell>
+                                <TableCell>XPA</TableCell>
+                                <TableCell>XPM</TableCell>
+                                <TableCell>FGA</TableCell>
+                                <TableCell>FGM.</TableCell>
+                                <TableCell>50+ FGs</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
                             {this.state.kStats.map(k => {
                                 return (<KCard 
                                     name = {k.name}
@@ -464,8 +470,8 @@ class Stats extends Component {
                                     fiftyPlus = {k.fiftyPlus}
                                 />)
                             })}
-                        </tbody>
-                    </table>
+                        </TableBody>
+                    </Table>
                 break;
             default:
                 content = ''

@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import API from '../../utils/API.js';
 import FantasyProsCard from '../../components/FantasyProsCard.js';
 import '../ADPTable/style.css';
-import { Button } from '@material-ui/core';
+import { Button, TableCell } from '@material-ui/core';
+import Table from '@material-ui/core/Table';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import TableBody from '@material-ui/core/TableBody';
+import Container from '@material-ui/core/Container';
 
 class Dashboard extends Component {
 
@@ -43,7 +48,7 @@ class Dashboard extends Component {
 
     render(){
         return(
-            <div>
+            <Container  maxWidth="sm">
                 <div className="container">
                     <h1>Fantasy Pros Draft Ranks</h1>
                     <div>
@@ -66,23 +71,23 @@ class Dashboard extends Component {
                     {this.state.showHideRanks ? (
                         <div className="rankTable">
                         {this.state.adp.length ? (
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Rank</th>
-                                        <th>Name</th>
-                                        <th>Team</th>
-                                        <th>Pos.</th>
-                                        <th>BYE</th>
-                                        <th>Best</th>
-                                        <th>Worst</th>
-                                        <th>Avg.</th>
-                                        <th>Standard Dev.</th>
-                                        <th>ADP</th>
-                                        <th>VS. ADP</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
+                            <Table>
+                                <TableHead>
+                                    <TableRow>
+                                        <TableCell>Rank</TableCell>
+                                        <TableCell>Name</TableCell>
+                                        <TableCell>Team</TableCell>
+                                        <TableCell>Pos.</TableCell>
+                                        <TableCell>BYE</TableCell>
+                                        <TableCell>Best</TableCell>
+                                        <TableCell>Worst</TableCell>
+                                        <TableCell>Avg.</TableCell>
+                                        <TableCell>Standard Dev.</TableCell>
+                                        <TableCell>ADP</TableCell>
+                                        <TableCell>VS. ADP</TableCell>
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
                                 {this.state.adp.map(player => {
                                     return (
                                         <FantasyProsCard 
@@ -101,8 +106,8 @@ class Dashboard extends Component {
                                         />
                                     );
                                 })}
-                            </tbody>
-                        </table>
+                            </TableBody>
+                        </Table>
                         ) : (
                         <h3>Table is loading.</h3>
                         )}
@@ -112,7 +117,7 @@ class Dashboard extends Component {
                     )}
                     
                 </div>
-            </div>
+            </Container>
         );
     }
 }

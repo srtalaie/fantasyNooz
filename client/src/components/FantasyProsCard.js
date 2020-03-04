@@ -1,24 +1,26 @@
 import React from "react";
+import TableCell from '@material-ui/core/TableCell';
+import TableRow from '@material-ui/core/TableRow';
 
 const playerLinkStyle = {
     color: 'black'
 }
 
 
-const FantasyProsCard = ({ rank, name, playerLink, team, position, byeWeek, bestRank, worstRank, average, stdDev, adp, vsADP }) => (
-    <tr className="tableRows">
-        <td>{rank}</td>
-        <td><a href={playerLink} style={playerLinkStyle}>{name}</a></td>
-        <td>{team}</td>
-        <td>{position}</td>
-        <td>{byeWeek}</td>
-        <td>{bestRank}</td>
-        <td>{worstRank}</td>
-        <td>{average}</td>
-        <td>{stdDev}</td>
-        <td>{adp}</td>
-        <td>{vsADP}</td>
-    </tr>
+const FantasyProsCard = ({ rank, name, playerLink, team, position, byeWeek, bestRank, worstRank, average, sTableCellDev, adp, vsADP }) => (
+    <TableRow className="tableRows">
+        <TableCell>{rank}</TableCell>
+        <TableCell><a href={playerLink} style={playerLinkStyle}>{name}</a></TableCell>
+        <TableCell>{team}</TableCell>
+        <TableCell>{position}</TableCell>
+        <TableCell>{byeWeek}</TableCell>
+        <TableCell>{bestRank}</TableCell>
+        <TableCell>{worstRank}</TableCell>
+        <TableCell>{average}</TableCell>
+        <TableCell>{sTableCellDev}</TableCell>
+        <TableCell>{adp}</TableCell>
+        <TableCell>{vsADP}</TableCell>
+    </TableRow>
 );
 
 export default FantasyProsCard;
