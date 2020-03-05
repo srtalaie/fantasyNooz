@@ -3,6 +3,8 @@ import API from '../../utils/API.js';
 import ArticlesCard from '../../components/ArticlesCard.js';
 import '../Articles/style.css';
 import { Button } from '@material-ui/core';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
 
 class Articles extends Component {
 
@@ -29,8 +31,8 @@ class Articles extends Component {
 
     render(){
         return(
-            <div>
-                <div className="container">
+            <Container maxWidth="sm">
+                <Grid item xs={12} className="articleContainer">
                     <h1>Posts From r/fantasyfootball</h1>
                     <div>
                         <p>Data is scraped from <a href="https://old.reddit.com/r/fantasyfootball">r/fantasyfootball</a> which is a great aggregrate of the most current fantasy football news. Will load 25 articles from the subreddit pulling from the current top posts. You can click on the links if there is an article or you can go to the reddit comments which provide some added insights...sometimes.</p>
@@ -54,8 +56,8 @@ class Articles extends Component {
                         <h3>Please Wait for Articles to Load</h3>
                         )}
                     </ul>
-                </div>
-            </div>
+                </Grid>
+            </Container>
         );
     }
 }
