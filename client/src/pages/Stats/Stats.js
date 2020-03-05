@@ -480,8 +480,8 @@ class Stats extends Component {
         }
         
         return(
-            <Container maxWidth="sm" className="container">
-                <Grid item xs={12}>
+            <Container maxWidth="sm">
+                <div className="playerStatsContainer">
                     <div className="yearWeekContainer">
                         <select onChange={this.handleChange} name='year'>
                             <option value={this.state.year}>{this.state.year}</option>
@@ -527,10 +527,10 @@ class Stats extends Component {
                             <button className="tabButtons" value="dst" onClick={this.handleClick} name="tabValue">D/ST</button>
                         </div>
                     </div>
-                    <Grid item xs={12} className="statsContainer">
+                    <Grid item xs={12} className="statsTable">
                         {content}
                     </Grid>
-                </Grid>
+                </div>
             </Container>
         );
     }

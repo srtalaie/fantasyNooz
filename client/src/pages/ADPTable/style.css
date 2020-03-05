@@ -1,7 +1,8 @@
-.container {
+.adpContainer {
+    display: flex;
+    flex-direction: column;
     text-align: center;
-    align-content: center;
-
+    align-items: center;
 }
 
 .rankTable {

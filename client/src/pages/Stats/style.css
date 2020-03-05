@@ -1,6 +1,8 @@
-.container {
-    text-align: center;
+.playerStatsContainer {
     display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
 }
 
 ul {
@@ -58,4 +60,9 @@ tr:hover {
     align-content: center;
     font-size: small;
     margin: 0 auto;
+}
+
+.statsTable {
+    display: flex;
+    justify-content: center;
 }

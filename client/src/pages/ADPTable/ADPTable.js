@@ -50,7 +50,7 @@ class Dashboard extends Component {
     render(){
         return(
             <Container maxWidth="sm">
-                <div className="container">
+                <div className="adpContainer">
                     <h1>Fantasy Pros Draft Ranks</h1>
                     <div>
                         <p>Data is scraped from <a href="https://www.fantasypros.com/nfl/rankings/consensus-cheatsheets.php">Fantasy Pros</a> which uses consensus rankings of ~80 experts. You can visit their site to create your own custom sheet based on which experts you trust. All rankings based on standard scoring.</p>
