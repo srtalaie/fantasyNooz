@@ -11,6 +11,7 @@ import TableRow from '@material-ui/core/TableRow';
 import TableBody from '@material-ui/core/TableBody';
 import Container from '@material-ui/core/Container';
 import TableCell from '@material-ui/core/TableCell';
+import Grid from '@material-ui/core/Grid';
 
 const date = new Date();
 
@@ -65,7 +66,7 @@ class Stats extends Component {
         let startDate = currDate - 6;
         let yearsArr = [];
         while(currDate > startDate){
-            yearsArr.push(currDate.toSTableRowing());
+            yearsArr.push(currDate.toString());
             currDate--;
         }
         this.setState({ years: yearsArr })
@@ -96,7 +97,7 @@ class Stats extends Component {
     }
 
     loadRBData = () => {
-        API.geTableRowBStats(this.state.year, this.state.week)
+        API.getRBStats(this.state.year, this.state.week)
         .then(
             res => this.setState({ rbStats: res.data })
         )
@@ -150,7 +151,7 @@ class Stats extends Component {
             case 'qb':
                 content = ''
                 content = 
-                    <Table>
+                    <Table size="small">
                         <TableHead>
                             <TableRow>
                                 <TableCell>Player Name</TableCell>
@@ -479,8 +480,8 @@ class Stats extends Component {
         }
         
         return(
-            <div>
-                <div className="container">
+            <Container maxWidth="sm" className="container">
+                <Grid item xs={12}>
                     <div className="yearWeekContainer">
                         <select onChange={this.handleChange} name='year'>
                             <option value={this.state.year}>{this.state.year}</option>
@@ -526,11 +527,11 @@ class Stats extends Component {
                             <button className="tabButtons" value="dst" onClick={this.handleClick} name="tabValue">D/ST</button>
                         </div>
                     </div>
-                    <div className="statsContainer">
+                    <Grid item xs={12} className="statsContainer">
                         {content}
-                    </div>
-                </div>
-            </div>
+                    </Grid>
+                </Grid>
+            </Container>
         );
     }
 }

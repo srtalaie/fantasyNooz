@@ -1,34 +1,6 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    max-width: 700px;
-    flex-wrap: wrap;
     text-align: center;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-}
-
-.tableRows:nth-child(even) {
-    background-color: #bcc5f9;
-}
-
-th,td {
-    text-align: left;
-    margin: 5px;
-    padding: 5px;
-}
-
-table {
-    border: 1px grey solid;
-    border-collapse: collapse;
-}
-
-th,td {
-    border: 1px grey solid;
-}
-
-th {
-    background-color: #bcc5f9;
+    display: flex;
 }
 
 ul {
@@ -79,4 +51,11 @@ tr:hover {
     padding: 10px;
     margin-bottom: 15px;
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+.statsContainer {
+    display: flex;
+    align-content: center;
+    font-size: small;
+    margin: 0 auto;
 }
