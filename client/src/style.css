@@ -32,3 +32,7 @@ html, body {
 .link:visited {
     color: whitesmoke;
 }
+
+tr:hover {
+    background-color: rgba(0, 0, 0, 0.10);
+}

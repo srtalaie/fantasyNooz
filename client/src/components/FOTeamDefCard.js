@@ -1,25 +1,27 @@
 import React from "react";
+import TableCell from '@material-ui/core/TableCell';
+import TableRow from '@material-ui/core/TableRow';
 
 const FOTeamDefCard = ({ rank, name, defDVOA, lastYear, weiDef, defRank, passDef, passRank, rushDef, rushRank, nonAdjTot, nonAdjTotPass, nonAdjTotRush, variance, varRank, sched, schedRank}) => (
-    <tr>
-        <td>{rank}</td>
-        <td>{name}</td>
-        <td>{defDVOA}</td>
-        <td>{lastYear}</td>
-        <td>{weiDef}</td>
-        <td>{defRank}</td>
-        <td>{passDef}</td>
-        <td>{passRank}</td>
-        <td>{rushDef}</td>
-        <td>{rushRank}</td>
-        <td>{nonAdjTot}</td>
-        <td>{nonAdjTotPass}</td>
-        <td>{nonAdjTotRush}</td>
-        <td>{variance}</td>
-        <td>{varRank}</td>
-        <td>{sched}</td>
-        <td>{schedRank}</td>
-    </tr>
+    <TableRow>
+        <TableCell>{rank}</TableCell>
+        <TableCell>{name}</TableCell>
+        <TableCell>{defDVOA}</TableCell>
+        <TableCell>{lastYear}</TableCell>
+        <TableCell>{weiDef}</TableCell>
+        <TableCell>{defRank}</TableCell>
+        <TableCell>{passDef}</TableCell>
+        <TableCell>{passRank}</TableCell>
+        <TableCell>{rushDef}</TableCell>
+        <TableCell>{rushRank}</TableCell>
+        <TableCell>{nonAdjTot}</TableCell>
+        <TableCell>{nonAdjTotPass}</TableCell>
+        <TableCell>{nonAdjTotRush}</TableCell>
+        <TableCell>{variance}</TableCell>
+        <TableCell>{varRank}</TableCell>
+        <TableCell>{sched}</TableCell>
+        <TableCell>{schedRank}</TableCell>
+    </TableRow>
 );
 
 export default FOTeamDefCard;

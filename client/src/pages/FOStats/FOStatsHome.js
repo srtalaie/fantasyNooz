@@ -7,6 +7,13 @@ import FOTeamDefCard from '../../components/FOTeamDefCard.js';
 import FOTeamSTCard from '../../components/FOTeamSTCard.js';
 import FOOLineCard from '../../components/FOOLineCard.js';
 import { Button } from '@material-ui/core';
+import Table from '@material-ui/core/Table';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import TableBody from '@material-ui/core/TableBody';
+import Container from '@material-ui/core/Container';
+import TableCell from '@material-ui/core/TableCell';
+import Grid from '@material-ui/core/Grid';
 
 const date = new Date();
 
@@ -126,24 +133,24 @@ class FOStatsHome extends Component {
                             <p>This shows the basic DVOA rankings for Offense, Deffense, Special Teams. To see further details on each unit select the specific unit you want to view.</p>
                             <p>DVOA is adjusted based on strength of opponents, fumbles lost and recovered are equal and for special teams weather, stadium and location.Football Outsider's Non-Adjusted Total Value does not include the previouos adjustments</p>
                         </div>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Rank</th>
-                                    <th>Team</th>
-                                    <th>Total DVOA</th>
-                                    <th>Last Year Rank</th>
-                                    <th>Non Adj Total VOA</th>
-                                    <th>Wins-Losses</th>
-                                    <th>Off. DVOA</th>
-                                    <th>Off. Rank</th>
-                                    <th>Def. DVOA</th>
-                                    <th>Def. Rank</th>
-                                    <th>ST. DVOA</th>
-                                    <th>ST. Rank</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                        <Table size="small">
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell>Rank</TableCell>
+                                    <TableCell>Team</TableCell>
+                                    <TableCell>Total DVOA</TableCell>
+                                    <TableCell>Last Year Rank</TableCell>
+                                    <TableCell>Non Adj Total VOA</TableCell>
+                                    <TableCell>Wins-Losses</TableCell>
+                                    <TableCell>Off. DVOA</TableCell>
+                                    <TableCell>Off. Rank</TableCell>
+                                    <TableCell>Def. DVOA</TableCell>
+                                    <TableCell>Def. Rank</TableCell>
+                                    <TableCell>ST. DVOA</TableCell>
+                                    <TableCell>ST. Rank</TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
                                 {this.state.teameffStats.map(team => {
                                     return(
                                         <FOTeamEffCard 
@@ -162,8 +169,8 @@ class FOStatsHome extends Component {
                                         />
                                     )
                                 })}
-                            </tbody>
-                        </table>
+                            </TableBody>
+                        </Table>
                     </div>
             break;
             case 'teamoff':
@@ -174,29 +181,29 @@ class FOStatsHome extends Component {
                             <p>The weighted offense reflects Fofotball Outsider's metric of prioritizing wins later in the season and wins in the beginning of the season being less important. This shows how well the team is playing towards the end of the season.</p>
                             <p>Offensive DVOA also takes into account negative yards that are not due to a rushing/passing play (i.e. penalties).</p>
                         </div>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Rank</th>
-                                    <th>Team</th>
-                                    <th>Off. DVOA</th>
-                                    <th>Last Year Rank</th>
-                                    <th>Weighted Off.</th>
-                                    <th>Off. Rank</th>
-                                    <th>Pass Off.</th>
-                                    <th>Pass Rank</th>
-                                    <th>Rush Off.</th>
-                                    <th>Rush Rank</th>
-                                    <th>Non Adj. Total</th>
-                                    <th>Non Adj. Tot. Pass</th>
-                                    <th>Non Adj. Tot. Rush</th>
-                                    <th>Var.</th>
-                                    <th>Var. Rank</th>
-                                    <th>Sched.</th>
-                                    <th>Sched. Rank</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                        <Table size="small">
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell>Rank</TableCell>
+                                    <TableCell>Team</TableCell>
+                                    <TableCell>Off. DVOA</TableCell>
+                                    <TableCell>Last Year Rank</TableCell>
+                                    <TableCell>Weighted Off.</TableCell>
+                                    <TableCell>Off. Rank</TableCell>
+                                    <TableCell>Pass Off.</TableCell>
+                                    <TableCell>Pass Rank</TableCell>
+                                    <TableCell>Rush Off.</TableCell>
+                                    <TableCell>Rush Rank</TableCell>
+                                    <TableCell>Non Adj. Total</TableCell>
+                                    <TableCell>Non Adj. Tot. Pass</TableCell>
+                                    <TableCell>Non Adj. Tot. Rush</TableCell>
+                                    <TableCell>Var.</TableCell>
+                                    <TableCell>Var. Rank</TableCell>
+                                    <TableCell>Sched.</TableCell>
+                                    <TableCell>Sched. Rank</TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
                                 {this.state.teamoffStats.map(team => {
                                     return(
                                         <FOTeamOffCard 
@@ -220,8 +227,8 @@ class FOStatsHome extends Component {
                                         />
                                     )
                                 })}
-                            </tbody>
-                        </table>
+                            </TableBody>
+                        </Table>
                     </div>
             break;
             case 'teamdef':
@@ -232,29 +239,29 @@ class FOStatsHome extends Component {
                             <p>The weighted offense reflects Fofotball Outsider's metric of prioritizing wins later in the season and wins in the beginning of the season being less important. This shows how well the team is playing towards the end of the season.</p>
                             <p>Remember when considering defenses negative DVOA is better.</p>
                         </div>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Rank</th>
-                                    <th>Team</th>
-                                    <th>Def. DVOA</th>
-                                    <th>Last Year Rank</th>
-                                    <th>Weighted Def.</th>
-                                    <th>Def. Rank</th>
-                                    <th>Pass Def.</th>
-                                    <th>Pass Rank</th>
-                                    <th>Rush Def.</th>
-                                    <th>Rush Rank</th>
-                                    <th>Non Adj. Total</th>
-                                    <th>Non Adj. Tot. Pass</th>
-                                    <th>Non Adj. Tot. Rush</th>
-                                    <th>Var.</th>
-                                    <th>Var. Rank</th>
-                                    <th>Sched.</th>
-                                    <th>Sched. Rank</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                        <Table size="small">
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell>Rank</TableCell>
+                                    <TableCell>Team</TableCell>
+                                    <TableCell>Def. DVOA</TableCell>
+                                    <TableCell>Last Year Rank</TableCell>
+                                    <TableCell>Weighted Def.</TableCell>
+                                    <TableCell>Def. Rank</TableCell>
+                                    <TableCell>Pass Def.</TableCell>
+                                    <TableCell>Pass Rank</TableCell>
+                                    <TableCell>Rush Def.</TableCell>
+                                    <TableCell>Rush Rank</TableCell>
+                                    <TableCell>Non Adj. Total</TableCell>
+                                    <TableCell>Non Adj. Tot. Pass</TableCell>
+                                    <TableCell>Non Adj. Tot. Rush</TableCell>
+                                    <TableCell>Var.</TableCell>
+                                    <TableCell>Var. Rank</TableCell>
+                                    <TableCell>Sched.</TableCell>
+                                    <TableCell>Sched. Rank</TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
                                 {this.state.teamdefStats.map(team => {
                                     return(
                                         <FOTeamDefCard 
@@ -278,8 +285,8 @@ class FOStatsHome extends Component {
                                         />
                                     )
                                 })}
-                            </tbody>
-                        </table>
+                            </TableBody>
+                        </Table>
                     </div>
             break;
             case 'teamst':
@@ -314,28 +321,28 @@ class FOStatsHome extends Component {
                                 </ul>
                             </p>
                         </div>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Rank</th>
-                                    <th>Team</th>
-                                    <th>ST. DVOA</th>
-                                    <th>Last Year Rank</th>
-                                    <th>Weighted ST.</th>
-                                    <th>ST. Rank</th>
-                                    <th>FG/XP.</th>
-                                    <th>Kick</th>
-                                    <th>Kick Ret.</th>
-                                    <th>Punt</th>
-                                    <th>Punt Ret.</th>
-                                    <th>Hidden Pts.</th>
-                                    <th>Hidden Pts. Rank</th>
-                                    <th>Weather Pts.</th>
-                                    <th>Weather Pts. Rank</th>
-                                    <th>Non Adj. VOA</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                        <Table size="small">
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell>Rank</TableCell>
+                                    <TableCell>Team</TableCell>
+                                    <TableCell>ST. DVOA</TableCell>
+                                    <TableCell>Last Year Rank</TableCell>
+                                    <TableCell>Weighted ST.</TableCell>
+                                    <TableCell>ST. Rank</TableCell>
+                                    <TableCell>FG/XP.</TableCell>
+                                    <TableCell>Kick</TableCell>
+                                    <TableCell>Kick Ret.</TableCell>
+                                    <TableCell>Punt</TableCell>
+                                    <TableCell>Punt Ret.</TableCell>
+                                    <TableCell>Hidden Pts.</TableCell>
+                                    <TableCell>Hidden Pts. Rank</TableCell>
+                                    <TableCell>Weather Pts.</TableCell>
+                                    <TableCell>Weather Pts. Rank</TableCell>
+                                    <TableCell>Non Adj. VOA</TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
                                 {this.state.teamstStats.map(team => {
                                     return(
                                         <FOTeamSTCard 
@@ -358,8 +365,8 @@ class FOStatsHome extends Component {
                                         />
                                     )
                                 })}
-                            </tbody>
-                        </table>
+                            </TableBody>
+                        </Table>
                     </div>
             break;
             case 'oline':
@@ -384,32 +391,32 @@ class FOStatsHome extends Component {
                             <p>According to Football Outsiders a team with a high ranking in Adjusted Line Yards but low Open Field Yards relies heavily on its o-line. While the inverse means the team relies heavily on its RBs.</p>
                             <p>For Pass Blocking the Adjusted Sack Rate is the amount of sacks and intentional groundings divided by attempt and adjusted for distance, opponent and down</p>
                         </div>
-                         <table>
-                            <thead>
-                                <tr>
-                                    <th colspan="12">Run Blocking</th>
-                                    <th colspan="4">Pass Blocking</th>
-                                </tr>
-                                <tr>
-                                    <th>Rank</th>
-                                    <th>Team</th>
-                                    <th>Adj. Line Yards</th>
-                                    <th>RB Yards</th>
-                                    <th>Power Success</th>
-                                    <th>Power Rank</th>
-                                    <th>Stuffed</th>
-                                    <th>Stuffed Rank</th>
-                                    <th>2nd Lvl. Yards</th>
-                                    <th>2nd Lvl. Rank</th>
-                                    <th>Open Field Yards</th>
-                                    <th>Open Field Rank</th>
-                                    <th>Team</th>
-                                    <th>Rank</th>
-                                    <th>Sacks</th>
-                                    <th>Adj. Sack Rate</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                         <Table size="small">
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell colspan="12">Run Blocking</TableCell>
+                                    <TableCell colspan="4">Pass Blocking</TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell>Rank</TableCell>
+                                    <TableCell>Team</TableCell>
+                                    <TableCell>Adj. Line Yards</TableCell>
+                                    <TableCell>RB Yards</TableCell>
+                                    <TableCell>Power Success</TableCell>
+                                    <TableCell>Power Rank</TableCell>
+                                    <TableCell>Stuffed</TableCell>
+                                    <TableCell>Stuffed Rank</TableCell>
+                                    <TableCell>2nd Lvl. Yards</TableCell>
+                                    <TableCell>2nd Lvl. Rank</TableCell>
+                                    <TableCell>Open Field Yards</TableCell>
+                                    <TableCell>Open Field Rank</TableCell>
+                                    <TableCell>Team</TableCell>
+                                    <TableCell>Rank</TableCell>
+                                    <TableCell>Sacks</TableCell>
+                                    <TableCell>Adj. Sack Rate</TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
                                 {this.state.olineStats.map(team => {
                                     return(
                                         <FOOLineCard 
@@ -432,8 +439,8 @@ class FOStatsHome extends Component {
                                         />
                                     )
                                 })}
-                            </tbody>
-                        </table>
+                            </TableBody>
+                        </Table>
                     </div>
                 break;
             default:
@@ -441,8 +448,8 @@ class FOStatsHome extends Component {
                 content = <div>Please choose which year and which Football Outsiders table you would like to view.</div>
         }
         return(
-            <div>
-                <div className="container">
+            <Container maxWidth="sm">
+                <div className="foContainer">
                     <div>
                         <p>ALL OF THE STATISTICS ARE FROM <a href="https://www.footballoutsiders.com/">FOOBALL OUTSIDERS</a></p>
                         <p>DVOA(Defense-adjusted Value Over Average) is a metric used by <a href="https://www.footballoutsiders.com/info/methods">Football Outsiders</a> that rates a every single play for a team against the league average based on the situation. By doing so each situation is not treated the same. Redzone plays are worth more than plays in your own territory. Gaining 5 yards to get a 1st down on 3rd is worth more than gaining that same amount of yards on a 1st down. They also adjust these metrics against how difficult the opponent is. DVOA is measured in % above or below league avaerage.</p>
@@ -476,7 +483,7 @@ class FOStatsHome extends Component {
                     </div>
                 </div>
 
-            </div>
+            </Container>
         )
     }
 }

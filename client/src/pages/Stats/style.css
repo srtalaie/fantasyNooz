@@ -45,10 +45,6 @@ li {
     border: 1px solid black;
 }
 
-tr:hover {
-    background-color: rgb(238, 118, 118);
-}
-
 .description {
     padding: 10px;
     margin-bottom: 15px;
