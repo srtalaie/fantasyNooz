@@ -202,7 +202,7 @@ class Stats extends Component {
             case 'rb':
                 content = ''
                 content = 
-                    <Table>
+                    <Table size="small">
                         <TableHead>
                             <TableRow>
                                 <TableCell>Player Name</TableCell>
@@ -253,7 +253,7 @@ class Stats extends Component {
             case 'wr':
                 content = ''
                 content = 
-                    <Table>
+                    <Table size="small">
                         <TableHead>
                             <TableRow>
                                 <TableCell>Player Name</TableCell>
@@ -304,7 +304,7 @@ class Stats extends Component {
             case 'te':
                 content = ''
                 content = 
-                    <Table>
+                    <Table size="small">
                         <TableHead>
                             <TableRow>
                                 <TableCell>Player Name</TableCell>
@@ -355,7 +355,7 @@ class Stats extends Component {
             case 'flex':
                 content = ''
                 content = 
-                    <Table>
+                    <Table size="small">
                         <TableHead>
                             <TableRow>
                                 <TableCell>Player Name</TableCell>
@@ -406,7 +406,7 @@ class Stats extends Component {
             case 'dst':
                 content = ''
                 content = 
-                    <Table>
+                    <Table size="small">
                         <TableHead>
                             <TableRow>
                                 <TableCell>Team Name</TableCell>
@@ -446,7 +446,7 @@ class Stats extends Component {
             case 'k':
                 content = ''
                 content = 
-                    <Table>
+                    <Table size="small">
                         <TableHead>
                             <TableRow>
                                 <TableCell>Name</TableCell>
